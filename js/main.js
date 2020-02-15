@@ -100,7 +100,11 @@ $(document).ready(function () {
       targets: 6,
       render: function(data, type, row, meta) {
         if (type === 'display' && data.url) {
-          data = '<a href="' + data.url + '" target="_blank">' + data.name + '</a>'
+          const parts = data.name.split('.')
+          while (parts.length > 2) {
+            parts.shift()
+          }
+          data = '<a href="' + data.url + '" target="_blank">' + parts.join('.') + '</a>'
         } else if (type === 'display') {
           data = data.name
         }
