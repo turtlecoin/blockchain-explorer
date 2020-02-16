@@ -233,7 +233,7 @@ function updateRecentBlocks(table, height) {
           block.hash,
           numeral(block.difficulty/1000/1000/1000).format('0,0.000') + ' B',
           numeral(block.tx_count).format('0,0'),
-          (new Date(block.timestamp * 1000)).toLocaleString(),
+          (new Date(block.timestamp * 1000)).toLocaleTimeString(),
           {
             url: block.poolURL || false,
             name: block.poolName || 'Scanning...'
