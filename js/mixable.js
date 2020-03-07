@@ -83,7 +83,7 @@ $(document).ready(function () {
 
 function isPrettyAmount (amount) {
   const length = amount.toString().length
-  const base = Math.pow(10, length)
+  const base = Math.pow(10, length - 1)
   return (amount % base === 0)
 }
 
@@ -98,7 +98,7 @@ function getMixableAmounts () {
       var ignored = 0
       for (var i = 0; i < data.length; i++) {
         var denomination = data[i]
-        if (!isPrettyAmount(denomination.amount) && denomination.outputs < 4) {
+        if (!isPrettyAmount(denomination.amount)) {
           ignored += denomination.amount
           continue
         }
