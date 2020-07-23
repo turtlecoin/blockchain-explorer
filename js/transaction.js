@@ -134,7 +134,7 @@ $(document).ready(function () {
   })
 })
 
-function checkTransaction() {
+async function checkTransaction() {
   var recipient = $('#recipientAddress').val()
   var key = $('#key').val()
   var txnPublicKey = $('#transactionPublicKey').text()
@@ -147,8 +147,10 @@ function checkTransaction() {
     setPrivateViewKeyState(true)
   }
 
+  var address;
+
   try {
-    var address = cnUtils.decodeAddress(recipient)
+    address = await TurtleCoinUtils.Address.fromAddress(recipient)
     if (!address) {
       setRecipientAddressState(true)
       return
@@ -159,24 +161,30 @@ function checkTransaction() {
   }
 
   var totalOwned = 0
-  localData.outputs.rows().every(function (idx, tableLoop, rowLoop) {
+  localData.outputs.rows().every(async function (idx, tableLoop, rowLoop) {
     var data = this.data()
-    var owned = checkOutput(txnPublicKey, key, address, {
+    var owned = await checkOutput(txnPublicKey, key, address, {
       index: idx,
       key: data[1]
     })
     if (owned) {
       totalOwned = totalOwned + parseInt(data[0])
       $(localData.outputs.row(idx).nodes()).addClass('is-ours')
+      $('#ourAmount').text(': Found ' + numeral(totalOwned / Math.pow(10, ExplorerConfig.decimalPoints)).format('0,0.00') + ' ' + ExplorerConfig.ticker)
     }
   })
-
-  $('#ourAmount').text(': Found ' + numeral(totalOwned / Math.pow(10, ExplorerConfig.decimalPoints)).format('0,0.00') + ' ' + ExplorerConfig.ticker)
 }
 
-function checkOutput(transactionPublicKey, key, address, output) {
-  const isOursTxnPublicKey = cnUtils.isOurTransactionOutput(transactionPublicKey, output, key, address.publicSpendKey)
-  const isOursTxnPrivKey = cnUtils.isOurTransactionOutput(address.publicViewKey, output, key, address.publicSpendKey)
+async function checkOutput(transactionPublicKey, key, address, output) {
+  let isOursTxnPublicKey;
+  try {
+    isOursTxnPublicKey = await cnUtils.isOurTransactionOutput(transactionPublicKey, output, key, address.spend.publicKey)
+  } catch (e) {}
+
+  let isOursTxnPrivKey;
+  try {
+    isOursTxnPrivKey = await cnUtils.isOurTransactionOutput(address.view.publicKey, output, key, address.spend.publicKey)
+  } catch (e) {}
 
   return (isOursTxnPublicKey || isOursTxnPrivKey)
 }

@@ -37,7 +37,7 @@ $(document).ready(function () {
   })
 })
 
-function generateWallet(newWallet) {
+async function generateWallet(newWallet) {
   const entropy = $('#entropy').val().trim()
   if (newWallet) {
     $('#seed').val('')
@@ -59,19 +59,19 @@ function generateWallet(newWallet) {
   var wallet
 
   if (entropy.length !== 0 && newWallet) {
-    wallet = cnUtils.createNewAddress(entropy)
+    wallet = await TurtleCoinUtils.Address.fromEntropy(entropy);
   } else if (seed.length !== 0) {
     if (!isHash(seed)) {
       return $('#seed').addClass('is-danger')
     }
-    wallet = cnUtils.createAddressFromSeed(seed)
+    wallet = await TurtleCoinUtils.Address.fromSeed(seed);
   } else if (mnemonic.length !== 0) {
     if ((mnemonic.split(' ')).length !== 25) {
       return $('#mnemonic').addClass('is-danger')
     }
-    wallet = cnUtils.createAddressFromMnemonic(mnemonic)
+    wallet = await TurtleCoinUtils.Address.fromMnemonic(mnemonic);
   } else if (newWallet) {
-    wallet = cnUtils.createNewAddress()
+    wallet = await TurtleCoinUtils.Address.fromEntropy();
   }
 
   if (!wallet) return
@@ -82,19 +82,19 @@ function generateWallet(newWallet) {
   $('#newPublicSpendKey').val(wallet.spend.publicKey)
   $('#newPrivateViewKey').val(wallet.view.privateKey)
   $('#newPublicViewKey').val(wallet.view.publicKey)
-  $('#newWalletAddress').val(wallet.address)
+  $('#newWalletAddress').val(await wallet.address())
 
   return true
 }
 
-function decodeAddress() {
+async function decodeAddress() {
   const walletAddress = $('#walletAddress').val()
 
   try {
-    const addr = cnUtils.decodeAddress(walletAddress)
+    const addr = await TurtleCoinUtils.Address.fromAddress(walletAddress)
 
-    $('#publicViewKey').val(addr.publicViewKey)
-    $('#publicSpendKey').val(addr.publicSpendKey)
+    $('#publicViewKey').val(addr.view.publicKey)
+    $('#publicSpendKey').val(addr.spend.publicKey)
     $('#paymentId').val(addr.paymentId)
     $('#walletAddress').removeClass('is-danger')
     $('#encodedAddress').val(walletAddress)
@@ -103,7 +103,7 @@ function decodeAddress() {
   }
 }
 
-function encodeAddress() {
+async function encodeAddress() {
   const publicViewKey = $('#publicViewKey').val().trim()
   const publicSpendKey = $('#publicSpendKey').val().trim()
   const paymentId = $('#paymentId').val().trim()
@@ -126,15 +126,17 @@ function encodeAddress() {
   }
 
   try {
-    const addr = cnUtils.encodeAddress(publicViewKey, publicSpendKey, paymentId)
-    $('#encodedAddress').val(addr)
+    const addr = await TurtleCoinUtils.Address.fromPublicKeys(publicSpendKey, publicViewKey, paymentId)
+    $('#encodedAddress').val(await addr.address())
   } catch (e) {
     $('#encodedAddress').removeClass('is-danger').addClass('is-danger')
   }
 }
 
-function generateRandomPaymentID() {
-  const random = cnUtils.createNewSeed((new Date()).toString()).toUpperCase()
+async function generateRandomPaymentID() {
+  const entropy = (new Date()).toString()
+      .toUpperCase();
+  const random = await TurtleCoinUtils.Address.generateSeed(entropy);
 
   $('#paymentId').val(random)
 }
