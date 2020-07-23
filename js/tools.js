@@ -64,12 +64,12 @@ async function generateWallet(newWallet) {
     if (!isHash(seed)) {
       return $('#seed').addClass('is-danger')
     }
-    wallet = await TurtleCoinUtils.Address.fromSeed(seed);
+    wallet = await TurtleCoinUtils.Address.fromSeed(seed.toLowerCase());
   } else if (mnemonic.length !== 0) {
     if ((mnemonic.split(' ')).length !== 25) {
       return $('#mnemonic').addClass('is-danger')
     }
-    wallet = await TurtleCoinUtils.Address.fromMnemonic(mnemonic);
+    wallet = await TurtleCoinUtils.Address.fromMnemonic(mnemonic.toLowerCase());
   } else if (newWallet) {
     wallet = await TurtleCoinUtils.Address.fromEntropy();
   }
