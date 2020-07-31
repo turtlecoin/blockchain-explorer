@@ -224,6 +224,52 @@
               </div>
             </div>
           </div>
+          <div class="panel">
+            <p class="panel-heading is-trtl-green"><i class="fas fa-signature"></i> Message Signing</p>
+            <div class="panel-block">
+              <div class="field has-addons is-really-fullwidth">
+                <div class="control is-really-fullwidth">
+                  <textarea class="textarea is-fullwidth" rows="5" placeholder="Message" id="sign_message"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="panel-block">
+              <div class="field has-addons is-really-fullwidth">
+                <div class="control">
+                  <span class="button is-trtl-black is-fixed-width-150">Signer</span>
+                </div>
+                <div class="control is-really-fullwidth">
+                  <input class="input is-fullwidth" type="text" placeholder="Public Key / Wallet Address" id="sign_signer">
+                </div>
+              </div>
+            </div>
+            <div class="panel-block">
+              <div class="field has-addons is-really-fullwidth">
+                <div class="control">
+                  <span class="button is-trtl-secondary-green is-fixed-width-150">Signature</span>
+                </div>
+                <div class="control is-really-fullwidth">
+                  <input class="input is-fullwidth" type="text" placeholder="Signature" id="sign_signature" maxlength="128">
+                </div>
+                <div class="control">
+                  <a class="button is-info is-trtl-green is-fixed-width-150" id="sign_check">Check Signature</a>
+                </div>
+              </div>
+            </div>
+            <div class="panel-block">
+              <div class="field has-addons is-really-fullwidth">
+                <div class="control">
+                  <span class="button is-trtl-red is-fixed-width-150">Private Key</span>
+                </div>
+                <div class="control is-really-fullwidth">
+                  <input class="input is-fullwidth" type="text" placeholder="Private Key" id="sign_private" maxlength="64">
+                </div>
+                <div class="control">
+                  <a class="button is-info is-trtl-green is-fixed-width-150" id="sign_generate">Sign Message</a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>

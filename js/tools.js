@@ -31,11 +31,84 @@ $(document).ready(function () {
     generateRandomPaymentID()
   })
 
+  $('#sign_check').click(function () {
+    checkSignature()
+  })
+
+  $('#sign_generate').click(function () {
+    generateSignature()
+  })
+
   window.cnUtils = new TurtleCoinUtils.CryptoNote({
     coinUnitPlaces: ExplorerConfig.decimalPoints,
     addressPrefix: ExplorerConfig.addressPrefix
   })
 })
+
+async function generateSignature() {
+  const cnUtil = new TurtleCoinUtils.CryptoNote()
+  const crypto = new TurtleCoinUtils.Crypto()
+
+  $('#sign_private').removeClass('is-danger')
+
+  const message = $('#sign_message').val().trim()
+
+  const private_key = $('#sign_private').val().trim()
+
+  if (!await crypto.checkScalar(private_key)) {
+    return $('#sign_private').addClass('is-danger')
+  }
+
+  const public_key = await crypto.secretKeyToPublicKey(private_key)
+
+  const signature = await cnUtil.signMessage(message, private_key)
+
+  try {
+    const pk = $('#sign_signer').val().trim()
+
+    const address = await TurtleCoinUtils.Address.fromAddress(pk)
+
+    if (address.spend.publicKey !== public_key) {
+      $('#sign_signer').val(public_key)
+    }
+  } catch (e) {
+    $('#sign_signer').val(public_key)
+  }
+
+  $('#sign_signature').val(signature)
+}
+
+async function checkSignature() {
+  const cnUtil = new TurtleCoinUtils.CryptoNote()
+  const crypto = new TurtleCoinUtils.Crypto()
+
+  const message = $('#sign_message').val().trim()
+
+  let public_key = $('#sign_signer').val().trim()
+
+  const signature = $('#sign_signature').val().trim()
+
+  $('#sign_signature').removeClass('is-danger')
+  $('#sign_signer').removeClass('is-danger')
+
+  if (!await crypto.checkKey(public_key)) {
+    try {
+      const address = await TurtleCoinUtils.Address.fromAddress(public_key)
+
+      public_key = address.spend.publicKey
+    } catch (e) {
+      return $('#sign_signer').addClass('is-danger')
+    }
+  }
+
+  try {
+    await cnUtil.verifyMessageSignature(message, public_key, signature)
+
+    return $('#sign_signature').addClass('is-success')
+  } catch (e) {
+    return $('#sign_signature').addClass('is-danger')
+  }
+}
 
 async function generateWallet(newWallet) {
   const entropy = $('#entropy').val().trim()
@@ -58,22 +131,22 @@ async function generateWallet(newWallet) {
 
   let wallet
 
-  const crypto = new TurtleCoinUtils.Crypto();
+  const crypto = new TurtleCoinUtils.Crypto()
 
   if (entropy.length !== 0 && newWallet) {
-    wallet = await TurtleCoinUtils.Address.fromEntropy(entropy);
+    wallet = await TurtleCoinUtils.Address.fromEntropy(entropy)
   } else if (seed.length !== 0) {
     if (!isHash(seed) || !await crypto.checkScalar(seed)) {
       return $('#seed').addClass('is-danger')
     }
-    wallet = await TurtleCoinUtils.Address.fromSeed(seed.toLowerCase());
+    wallet = await TurtleCoinUtils.Address.fromSeed(seed.toLowerCase())
   } else if (mnemonic.length !== 0) {
     if ((mnemonic.split(' ')).length !== 25) {
       return $('#mnemonic').addClass('is-danger')
     }
-    wallet = await TurtleCoinUtils.Address.fromMnemonic(mnemonic.toLowerCase());
+    wallet = await TurtleCoinUtils.Address.fromMnemonic(mnemonic.toLowerCase())
   } else if (newWallet) {
-    wallet = await TurtleCoinUtils.Address.fromEntropy();
+    wallet = await TurtleCoinUtils.Address.fromEntropy()
   }
 
   if (!wallet) return
@@ -85,6 +158,9 @@ async function generateWallet(newWallet) {
   $('#newPrivateViewKey').val(wallet.view.privateKey)
   $('#newPublicViewKey').val(wallet.view.publicKey)
   $('#newWalletAddress').val(await wallet.address())
+  $('#walletAddress').val(await wallet.address())
+  $('#sign_signer').val(await wallet.address())
+  $('#sign_private').val(wallet.spend.privateKey)
 
   return true
 }
@@ -137,8 +213,9 @@ async function encodeAddress() {
 
 async function generateRandomPaymentID() {
   const entropy = (new Date()).toString()
-      .toUpperCase();
-  const random = await TurtleCoinUtils.Address.generateSeed(entropy);
+      .toUpperCase()
+
+  const random = await TurtleCoinUtils.Address.generateSeed(entropy)
 
   $('#paymentId').val(random)
 }
