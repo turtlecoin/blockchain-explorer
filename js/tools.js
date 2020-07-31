@@ -56,12 +56,14 @@ async function generateWallet(newWallet) {
   $('#seed').removeClass('is-danger')
   $('#mnemonic').removeClass('is-danger')
 
-  var wallet
+  let wallet
+
+  const crypto = new TurtleCoinUtils.Crypto();
 
   if (entropy.length !== 0 && newWallet) {
     wallet = await TurtleCoinUtils.Address.fromEntropy(entropy);
   } else if (seed.length !== 0) {
-    if (!isHash(seed)) {
+    if (!isHash(seed) || !await crypto.checkScalar(seed)) {
       return $('#seed').addClass('is-danger')
     }
     wallet = await TurtleCoinUtils.Address.fromSeed(seed.toLowerCase());
