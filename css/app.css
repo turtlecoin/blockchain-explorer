@@ -206,6 +206,9 @@ a.navbar-item:hover {
     .panel-block {
         overflow-x: auto;
     }
+    .columns {
+        margin: 0;
+    }
     .column {
         padding: 0.75rem 0;
     }
@@ -214,7 +217,7 @@ a.navbar-item:hover {
         padding-bottom: 0;
     }
     .section {
-        padding: 1.5rem;
+        padding: 0.75rem;
     }
     th.trtl-icon:first-child {
         padding: .5em 0;
