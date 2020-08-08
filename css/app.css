@@ -1,7 +1,10 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,300i,400i");
+
 body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  font-family: "Source Sans Pro", Helvetica, sans-serif;
 }
 
 main {
