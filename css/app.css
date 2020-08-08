@@ -43,7 +43,7 @@ container {
 
 .is-trtl-green {
   background-color: #00853d !important;
-  color: #fff !important;
+  color: rgba(255, 255, 255, 0.875) !important;
 }
 
 .is-trtl-secondary-green {
