@@ -202,10 +202,11 @@ a.navbar-item:hover {
     border-bottom: 0;
 }
 
+.panel-block {
+    overflow-x: auto;
+}
+
 @media screen and (max-width: 1024px) {
-    .panel-block {
-        overflow-x: auto;
-    }
     .columns {
         margin: 0;
     }
