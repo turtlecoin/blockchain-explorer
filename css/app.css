@@ -1,8 +1,10 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,300i,400i");
+
 body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  min-width: 1120px;
+  font-family: "Source Sans Pro", Helvetica, sans-serif;
 }
 
 main {
@@ -41,7 +43,7 @@ container {
 
 .is-trtl-green {
   background-color: #00853d !important;
-  color: #fff !important;
+  color: rgba(255, 255, 255, 0.875) !important;
 }
 
 .is-trtl-secondary-green {
@@ -196,4 +198,32 @@ a.navbar-item:hover {
 
 .is-ours {
   background-color: #40c18e !important;
+}
+
+.panel-block:first-child, .panel-heading:first-child, .panel-tabs:first-child {
+    border-top: 0;
+    border-bottom: 0;
+}
+
+.panel-block {
+    overflow-x: auto;
+}
+
+@media screen and (max-width: 1024px) {
+    .columns {
+        margin: 0;
+    }
+    .column {
+        padding: 0.75rem 0;
+    }
+    .panel:not(:last-child) {
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+    .section {
+        padding: 0.75rem;
+    }
+    th.trtl-icon:first-child {
+        padding: .5em 0;
+    }
 }
