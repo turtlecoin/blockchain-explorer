@@ -240,7 +240,7 @@ function updateRecentBlocks(table, height) {
           (new Date(block.timestamp * 1000)).toLocaleTimeString(),
           {
             url: block.poolURL || false,
-            name: block.poolName || 'Scanning...'
+            name: block.poolName || 'Unknown'
           }
         ])
       }
