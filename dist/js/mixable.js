@@ -13,7 +13,7 @@ $(document).ready(function () {
       render: function (data, type, row, meta) {
         if (type === 'display') {
           if (data.height !== null) {
-            data = '<a href="/block.html?hash=' + data.hash + '">' + numeral(data.height).format('0,0') + '</a>'
+            data = '<a href="./block.html?hash=' + data.hash + '">' + numeral(data.height).format('0,0') + '</a>'
           } else {
             data = ''
           }
@@ -63,7 +63,7 @@ $(document).ready(function () {
       render: function (data, type, row, meta) {
         if (type === 'display') {
           if (data !== null) {
-            data = '<a href="/transaction.html?hash=' + data + '">' + data + '</a>'
+            data = '<a href="./transaction.html?hash=' + data + '">' + data + '</a>'
           } else {
             data = ''
           }

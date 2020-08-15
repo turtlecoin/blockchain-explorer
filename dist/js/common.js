@@ -92,7 +92,7 @@ function searchForTerm (term) {
       type: 'GET',
       cache: 'false',
       success: function (data) {
-        window.location = '/block.html?hash=' + data.hash
+        window.location = './block.html?hash=' + data.hash
       },
       error: function () {
         setSearchValueErrorState(true)
@@ -109,7 +109,7 @@ function searchForTerm (term) {
       cache: 'false',
       success: function (data) {
         /* We found a block that matched, let's go take a look at it */
-        window.location = '/block.html?hash=' + data.hash
+        window.location = './block.html?hash=' + data.hash
       },
       error: function () {
         /* It's not a block, is it a transaction? */
@@ -120,7 +120,7 @@ function searchForTerm (term) {
           cache: 'false',
           success: function (data) {
             /* Great, we found a matching transaction, let's go take a look at it */
-            window.location = '/transaction.html?hash=' + data.tx.hash
+            window.location = './transaction.html?hash=' + data.tx.hash
           },
           error: function () {
             /* It's not a transaction hash, must be a paymentId */
@@ -132,7 +132,7 @@ function searchForTerm (term) {
               success: function (data) {
                 if (data.length !== 0) {
                   /* It's a payment Id, let's display the list */
-                  window.location = '/paymentid.html?id=' + term
+                  window.location = './paymentid.html?id=' + term
                 } else {
                   if (!searchTransactionPool(term)) {
                     setSearchValueErrorState(true)

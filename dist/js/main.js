@@ -92,7 +92,7 @@ $(document).ready(function () {
       targets: 2,
       render: function (data, type, row, meta) {
         if (type === 'display') {
-          data = '<a href="/block.html?hash=' + data + '">' + data + '</a>'
+          data = '<a href="./block.html?hash=' + data + '">' + data + '</a>'
         }
         return data
       }
@@ -240,7 +240,7 @@ function updateRecentBlocks(table, height) {
           (new Date(block.timestamp * 1000)).toLocaleTimeString(),
           {
             url: block.poolURL || false,
-            name: block.poolName || 'Unknown'
+            name: block.poolName || 'Scanning...'
           }
         ])
       }

@@ -1,163 +1,305 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="apple-touch-icon" sizes="120x120" href="./ico/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./ico/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./ico/favicon-16x16.png">
-    <link rel="manifest" href="./ico/site.webmanifest">
-    <link rel="mask-icon" href="./ico/safari-pinned-tab.svg" color="#00853d">
-    <link rel="shortcut icon" href="./ico/favicon.ico">
-    <meta name="msapplication-TileColor" content="#00853d">
-    <meta name="msapplication-config" content="/ico/browserconfig.xml">
-    <meta name="theme-color" content="#ffffff">
-    <meta property="og:title" content="TurtleCoin Block Explorer">
-    <meta name="Description" content="Block Explorer for the TurtleCoin network that is a fun, fast, and easy way to send money to friends and businesses.">
-    <meta property="og:description" content="Block Explorer for the TurtleCoin network that is a fun, fast, and easy way to send money to friends and businesses.">
-    <meta property="og:image" content="https://turtlecoin.github.io/blockchain-explorer/img/turtlecoin_shield.png">
-    <meta name="Keywords" content="TurtleCoin,TurtlePay,blockchain,explorer,pools,hashrate,hash rate,mining,block explorer">
-    <title>[TRTL] TurtleCoin Block Explorer</title>
-    <link rel="stylesheet" href="./css/third-party.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/app.css">
-    <script src="./js/third-party.js"></script>
-    <script src="./js/config.js"></script>
-    <script src="./js/common.js"></script>
-    <script src="./js/block.js"></script>
-  </head>
-  <body class="has-navbar-fixed-top">
-    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
-      <div class="navbar-brand">
-        <a class="navbar-item" href="./index.html">
-        <img src="./img/turtlecoin_logo.png" height="100">
-        </a>
-        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="siteNavBar">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        </a>
-      </div>
-      <div id="siteNavBar" class="navbar-menu">
-        <div class="navbar-start">
-          <a class="navbar-item is-active" href="./"><i class="fas fa-dice-d6"></i>&nbsp; Block Explorer</a>
-          <a class="navbar-item" href="./nodes.html"><i class="fas fa-server"></i>&nbsp; Nodes</a>
-          <a class="navbar-item" href="./pools.html"><i class="fas fa-users"></i>&nbsp; Pools</a>
-          <a class="navbar-item" href="./tools.html"><i class="fas fa-toolbox"></i>&nbsp; Tools</a>
-          <a class="navbar-item" href="./mixable.html"><i class="fas fa-mortar-pestle"></i>&nbsp; Mixable Amounts</a>
-          <a class="navbar-item" href="./charts.html"><i class="fas fa-chart-bar"></i>&nbsp; Network Charts</a>
-          <a class="navbar-item" href="./supply.html"><i class="fas fa-money-bill-wave-alt"></i>&nbsp; Currency Supply</a>
-        </div>
-        <div class="navbar-end">
-          <div class="navbar-item">
-            <div class="field has-addons">
-              <div class="control has-icons-left">
-                <input id="searchValue" type="text" class="input" placeholder="Search by Block Height / Hash, Transaction Hash, or Payment Id" size="70" maxlength="64">
-                <span class="icon is-small is-left">
-                <i class="fas fa-search "></i>
-                </span>
-              </div>
-              <div class="control">
-                <a class="button is-info is-trtl-green" id="searchButton">
-                Search
-                </a>
-              </div>
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+      <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+      <title>TurtleCoin Block Explorer</title>
+      <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+      <meta name="msapplication-TileColor" content="#43b380"/>
+      <meta name="theme-color" content="#43b380"/>
+      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+      <meta name="apple-mobile-web-app-capable" content="yes"/>
+      <meta name="mobile-web-app-capable" content="yes"/>
+      <meta name="HandheldFriendly" content="True"/>
+      <meta name="MobileOptimized" content="320"/>
+      <link rel="shortcut icon" href="./dist/ico/favicon.ico">
+      <link rel="icon" type="image/png" sizes="32x32" href="./dist/ico/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="./dist/ico/favicon-16x16.png">
+      <link rel="manifest" href="./dist/ico/site.webmanifest">
+      <link rel="mask-icon" href="./dist/ico/safari-pinned-tab.svg" color="#43b380">
+      <link href="./dist/css/tabler.min.css" rel="stylesheet"/>
+      <link href="./dist/css/style.css" rel="stylesheet"/>
+      <style>
+         body {
+         display: none;
+         }
+      </style>
+      <script src="./dist/js/third-party.js"></script>       
+      <script src="./dist/js/config.js"></script>
+      <script src="./dist/js/common.js"></script>
+      <script src="./dist/js/block.js"></script>
+   </head>
+   <body class="antialiased">
+      <div class="page">
+         <header class="navbar navbar-expand-lg navbar-dark navbar-overlap">
+            <div class="container-xl">
+               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu">
+               <span class="navbar-toggler-icon"></span>
+               </button>
+               <a href="./index.html" class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pr-0 pr-md-3">
+               <img src="./dist/img/turtlecoin-logo.svg" alt="Tabler" class="navbar-brand-image">
+               </a>
+               <div class="navbar-nav flex-row order-md-last">
+                  <div class="nav-item d-md-flex">
+                     <a href="#" class="nav-link px-0 mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-md" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                           <path stroke="none" d="M0 0h24v24H0z"></path>
+                           <circle cx="12" cy="12" r="9"></circle>
+                           <line x1="12" y1="3" x2="12" y2="21"></line>
+                           <path d="M12 9l4.65 -4.65"></path>
+                           <path d="M12 14.3l7.37 -7.37"></path>
+                           <path d="M12 19.6l8.85 -8.85"></path>
+                        </svg>
+                     </a>
+                  </div>
+               </div>
+               <div class="collapse navbar-collapse" id="navbar-menu">
+                  <div class="d-flex flex-column flex-lg-row flex-fill align-items-stretch align-items-lg-center">
+                     <ul class="navbar-nav">
+                        <li class="nav-item">
+                           <a class="nav-link" href="./index.html">
+                              <span class="nav-link-icon d-lg-inline-block">
+                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z"></path>
+                                    <polyline points="12 3 20 7.5 20 16.5 12 21 4 16.5 4 7.5 12 3"></polyline>
+                                    <line x1="12" y1="12" x2="20" y2="7.5"></line>
+                                    <line x1="12" y1="12" x2="12" y2="21"></line>
+                                    <line x1="12" y1="12" x2="4" y2="7.5"></line>
+                                    <line x1="16" y1="5.25" x2="8" y2="9.75"></line>
+                                 </svg>
+                              </span>
+                              <span class="nav-link-title">
+                              Block Explorer
+                              </span>
+                           </a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="./nodes.html">
+                              <span class="nav-link-icon d-lg-inline-block">
+                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-md" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z"></path>
+                                    <rect x="3" y="4" width="18" height="8" rx="3"></rect>
+                                    <rect x="3" y="12" width="18" height="8" rx="3"></rect>
+                                    <line x1="7" y1="8" x2="7" y2="8.01"></line>
+                                    <line x1="7" y1="16" x2="7" y2="16.01"></line>
+                                 </svg>
+                              </span>
+                              <span class="nav-link-title">
+                              Nodes
+                              </span>
+                           </a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="./pools.html">
+                              <span class="nav-link-icon d-lg-inline-block">
+                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z"></path>
+                                    <polyline points="9 11 12 14 20 6"></polyline>
+                                    <path d="M20 12v6a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h9"></path>
+                                 </svg>
+                              </span>
+                              <span class="nav-link-title">
+                              Pools
+                              </span>
+                           </a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="./tools.html">
+                              <span class="nav-link-icon d-lg-inline-block">
+                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z"></path>
+                                    <path d="M12 17.75l-6.172 3.245 1.179-6.873-4.993-4.867 6.9-1.002L12 2l3.086 6.253 6.9 1.002-4.993 4.867 1.179 6.873z"></path>
+                                 </svg>
+                              </span>
+                              <span class="nav-link-title">
+                              Tools
+                              </span>
+                           </a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="./mixable.html">
+                              <span class="nav-link-icon d-lg-inline-block">
+                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z"></path>
+                                    <rect x="4" y="4" width="6" height="5" rx="2"></rect>
+                                    <rect x="4" y="13" width="6" height="7" rx="2"></rect>
+                                    <rect x="14" y="4" width="6" height="7" rx="2"></rect>
+                                    <rect x="14" y="15" width="6" height="5" rx="2"></rect>
+                                 </svg>
+                              </span>
+                              <span class="nav-link-title">
+                              Mixable Amounts
+                              </span>
+                           </a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="./charts.html">
+                              <span class="nav-link-icon d-lg-inline-block">
+                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-md" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z"></path>
+                                    <rect x="3" y="12" width="6" height="8" rx="1"></rect>
+                                    <rect x="9" y="8" width="6" height="12" rx="1"></rect>
+                                    <rect x="15" y="4" width="6" height="16" rx="1"></rect>
+                                    <line x1="4" y1="20" x2="18" y2="20"></line>
+                                 </svg>
+                              </span>
+                              <span class="nav-link-title">
+                              Network Charts
+                              </span>
+                           </a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="./supply.html">
+                              <span class="nav-link-icon d-lg-inline-block">
+                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z"></path>
+                                    <polyline points="14 3 14 8 19 8"></polyline>
+                                    <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"></path>
+                                    <line x1="9" y1="9" x2="10" y2="9"></line>
+                                    <line x1="9" y1="13" x2="15" y2="13"></line>
+                                    <line x1="9" y1="17" x2="15" y2="17"></line>
+                                 </svg>
+                              </span>
+                              <span class="nav-link-title">
+                              Currency Supply
+                              </span>
+                           </a>
+                        </li>
+                     </ul>
+                     <div class="ml-lg-auto pl-lg-4 py-2 py-md-0 order-last flex-grow-1 flex-md-grow-1">
+                        <div>
+                           <div class="input-icon">
+                              <span class="input-icon-addon">
+                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z"></path>
+                                    <circle cx="10" cy="10" r="7"></circle>
+                                    <line x1="21" y1="21" x2="15" y2="15"></line>
+                                 </svg>
+                              </span>
+                              <input type="text" id="searchValue" class="form-control form-control-dark" placeholder="Search by Block Height / Hash, Transaction Hash, or Payment Id">
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </nav>
-    <main>
-      <section class="section">
-        <div class="container">
-          <div class="column panel">
-            <p class="panel-heading is-trtl-green"><i class="fas fa-dice-d6"></i>&nbsp; Block: <span id="blockHeaderHash">&nbsp;</span></p>
-            <div class="panel-block">
-              <table class="table is-striped is-fullwidth">
-                <tr>
-                  <th class="trtl-icon"><i class="fas fa-bars"></i></th>
-                  <th>Height</th>
-                  <td id="blockHeight" class="has-text-left"></td>
-                  <th class="trtl-icon"><i class="fas fa-weight-hanging"></i></th>
-                  <th>Size</th>
-                  <td id="blockSize" class="has-text-left"></td>
-                <tr>
-                <tr>
-                  <th class="trtl-icon"><i class="fas fa-check-double"></i></th>
-                  <th>Confirmations</th>
-                  <td id="blockDepth" class="has-text-left"></td>
-                  <th class="trtl-icon"><i class="fas fa-trophy"></i></th>
-                  <th>Base Reward</th>
-                  <td id="blockBaseReward" class="has-text-left"></td>
-                </tr>
-                <tr>
-                  <th class="trtl-icon"><i class="fas fa-clock"></i></th>
-                  <th>Date & Time</th>
-                  <td id="blockTimestamp" class="has-text-left"></td>
-                  <th class="trtl-icon"><i class="fas fa-award"></i></th>
-                  <th>Reward</th>
-                  <td id="blockReward" class="has-text-left"></td>
-                </tr>
-                <tr>
-                  <th class="trtl-icon"><i class="fas fa-code-branch"></i></th>
-                  <th>Version</th>
-                  <td id="blockVersion" class="has-text-left"></td>
-                  <th class="trtl-icon"><i class="fas fa-weight-hanging"></i></th>
-                  <th>Transactions Size</th>
-                  <td id="blockTransactionSize" class="has-text-left"></td>
-                </tr>
-                <tr>
-                  <th class="trtl-icon"><i class="fas fa-lock"></i></th>
-                  <th>Difficulty</th>
-                  <td id="blockDifficulty" class="has-text-left"></td>
-                  <th class="trtl-icon"><i class="fas fa-exchange-alt"></i></th>
-                  <th>Transaction Fees</th>
-                  <td id="blockTransactionFees" class="has-text-left"></td>
-                </tr>
-                <tr>
-                  <th class="trtl-icon"><i class="fas fa-puzzle-piece"></i></th>
-                  <th>Nonce</th>
-                  <td id="blockNonce" class="has-text-left"></td>
-                  <th class="trtl-icon"><i class="fas fa-hashtag"></i></th>
-                  <th>Prev. Block</th>
-                  <td id="previousBlockHash" class="has-text-left trtl-size"></td>
-                </tr>
-                <tr>
-                  <th class="trtl-icon"><i class="fas fa-people-carry"></i></th>
-                  <th>Mined Via</th>
-                  <td id="poolName" class="has-text-left"></td>
-                  <td colspan="3">&nbsp;</td>
-                </tr>
-              </table>
+         </header>
+         <div class="content">
+            <div class="container-xl">
+               <!-- Page title -->
+               <div class="page-header text-white">
+                  <div class="row align-items-center">
+                     <div class="col-auto">
+                        <h2 class="page-title">
+                           Block Details
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <div class="row row-deck row-cards">
+                  <div class="col-lg-12">
+                     <div class="card">
+                        <div class="card-header text-break">
+                           <h4 class="card-title"><span id="blockHeaderHash">&nbsp;</span></h4>
+                        </div>
+                        <div class="table-responsive">
+                           <table class="table card-table text-nowrap table-vcenter">
+                              <tbody>
+                                 <tr>
+                                    <th>Height</th>
+                                    <td id="blockHeight"></td>
+                                    <th>Size</th>
+                                    <td id="blockSize"></td>
+                                 </tr>
+                                 <tr>
+                                    <th>Confirmations</th>
+                                    <td id="blockDepth"> </td>
+                                    <th>Base Reward</th>
+                                    <td id="blockBaseReward"></td>
+                                 </tr>
+                                 <tr>
+                                    <th>Date & Time</th>
+                                    <td id="blockTimestamp"></td>
+                                    <th>Reward</th>
+                                    <td id="blockReward"></td>
+                                 </tr>
+                                 <tr>
+                                    <th>Version</th>
+                                    <td id="blockVersion"></td>
+                                    <th>Transactions Size</th>
+                                    <td id="blockTransactionSize"></td>
+                                 </tr>
+                                 <tr>
+                                    <th>Difficulty</th>
+                                    <td id="blockDifficulty"></td>
+                                    <th>Transaction Fees</th>
+                                    <td id="blockTransactionFees"></td>
+                                 </tr>
+                                 <tr>
+                                    <th>Nonce</th>
+                                    <td id="blockNonce"></td>
+                                    <th>Prev. Block</th>
+                                    <td id="previousBlockHash"></td>
+                                 </tr>
+                                 <tr>
+                                    <th>Mined Via</th>
+                                    <td id="poolName"></td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-lg-12">
+                     <div class="card">
+                        <div class="card-header">
+                           <h4 class="card-title">Transactions <span id="transactionCount" class="badge badge-pill bg-green">0</span></h4>
+                        </div>
+                        <div class="table-responsive">
+                           <table id="transactions" class="table table-vcenter text-nowrap card-table">
+                              <thead>
+                                 <tr>
+                                    <th>Hash</th>
+                                    <th>Fee</th>
+                                    <th>Total Amount</th>
+                                    <th>Size</th>
+                                 </tr>
+                              </thead>
+                           </table>
+                        </div>
+                     </div>
+                  </div>
+               </div>
             </div>
-          </div>
-          <div class="column panel">
-            <p class="panel-heading is-trtl-green"><i class="fas fa-exchange-alt"></i>&nbsp; Transactions <span id="transactionCount" class="tag is-trtl-black is-rounded">0</span></p>
-            <div class="panel-block">
-              <table id="transactions" class="table table-striped table-bordered is-fullwidth nowrap">
-                <thead>
-                  <tr>
-                    <th><i class="fas fa-hashtag"></i>&nbsp; Hash</th>
-                    <th class="trtl-fee"><i class="fas fa-exchange-alt"></i>&nbsp; Fee</th>
-                    <th class="trtl-amount"><i class="fas fa-money-bill-wave-alt"></i>&nbsp; Total Amount</th>
-                    <th class="trtl-size"><i class="fas fa-weight-hanging"></i>&nbsp; Size</th>
-                  </tr>
-                </thead>
-              </table>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-    <footer>
-      <div class="content has-text-centered">
-        <p>
-          Copyright &copy; 2018-2020 TurtlePay&reg; Development Team. The source code is licensed under <a href="https://www.gnu.org/licenses/agpl-3.0.html">AGPL-3.0</a>.
-        </p>
-        <p>
-          <a href="https://turtlepay.io"><img src="https://badge.turtlepay.io/" alt="Powered by TurtlePay" /></a>
-        </p>
+            <footer class="footer footer-transparent">
+               <div class="container">
+                  <div class="row text-center align-items-center flex-row-reverse">
+                     <div class="col-lg-auto ml-lg-auto">
+                        <ul class="list-inline list-inline-dots mb-0">
+                           <li class="list-inline-item">
+                              <a href="https://github.com/l33d4n/trtl-explorer" target="_blank" class="link-secondary">Source code</a>
+                           </li>
+                        </ul>
+                     </div>
+                     <div class="col-12 col-lg-auto mt-3 mt-lg-0">
+                        Copyright © 2020 Powerd By
+                        <a href="https://turtlepay.io/" target="_blank" class="link-secondary">TurtlePay</a>.
+                        The source code is licensed under AGPL-3.0.
+                     </div>
+                  </div>
+               </div>
+            </footer>
+         </div>
       </div>
-    </footer>
-  </body>
+      <!-- Libs JS -->
+      <script src="./dist/js/bootstrap.bundle.min.js"></script>
+      <!-- Tabler Core -->
+      <script src="./dist/js/tabler.min.js"></script>
+      <!-- Dark Mode -->
+      <script src="./dist/js/dark-mode.js"></script>
+      <script>
+         document.body.style.display = "block"
+      </script>
+   </body>
 </html>
