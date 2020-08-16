@@ -19,7 +19,7 @@ $(document).ready(function () {
             targets: [5],
             render: function (data, type, row, meta) {
               if (type === 'display') {
-                data = '<a href="/transaction.html?hash=' + data + '">' + data + '</a>'
+                data = '<a href="./transaction.html?hash=' + data + '">' + data + '</a>'
               }
               return data
             }
@@ -55,9 +55,9 @@ $(document).ready(function () {
         order: [
           [0, 'asc']
         ],
-        searching: true,
+        searching: false,
         info: false,
-        paging: true,
+        paging: false,
         pageLength: 25,
         lengthMenu: [
           [25, 50, 100, -1],

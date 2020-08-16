@@ -92,7 +92,7 @@ $(document).ready(function () {
       targets: 2,
       render: function (data, type, row, meta) {
         if (type === 'display') {
-          data = '<a href="/block.html?hash=' + data + '">' + data + '</a>'
+          data = '<a href="./block.html?hash=' + data + '">' + data + '</a>'
         }
         return data
       }

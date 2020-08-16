@@ -1,0 +1,135 @@
+.navbar-overlap:after {
+	content: '';
+	height: 9rem;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	right: 0;
+	background: inherit;
+	z-index: -1;
+	box-shadow: inherit;
+}
+
+.navbar-dark {
+	background: #43b380;
+}
+
+.navbar-nav .nav-item {
+	white-space: nowrap;
+}
+
+a {
+	color: #43b380;
+}
+
+a:hover {
+	color: #3ca173;
+}
+
+.btn-primary {
+	background-color: #43b380;
+	border-color: #43b380;
+}
+
+.btn-primary:hover,
+.btn-primary.active,
+.btn-primary:active,
+.btn-primary.focus,
+.btn-primary:focus {
+	background-color: #3ca173;
+	border-color: #3ca173;
+}
+
+.chart#blockchainChart {
+	min-height: 330px;
+}
+
+.chart#supply {
+	min-height: 650px;
+}
+
+.table th {
+	font-weight: 600;
+	color: #354052;
+}
+
+@media (min-width: 64rem) {
+	.w-150 {
+		width: 150px;
+	}
+}
+
+.form-control.is-danger {
+	border-color: #cd201f;
+}
+
+.form-control.is-success {
+	border-color: #5eba00;
+}
+
+.bg-green {
+	background: #43b380;
+}
+
+#nodes i.has-trtl-green,
+#nodes i.has-trtl-red,
+#pools i.has-trtl-green,
+#nodes i.has-trtl-red {
+	background: #43b380;
+	display: inline-block;
+	width: .5rem;
+	height: .5rem;
+	min-width: 0;
+	min-height: auto;
+	padding: 0;
+	border-radius: 50%;
+	margin-right: 2px;
+}
+
+#nodes i.has-trtl-red,
+#nodes i.has-trtl-red {
+	background: #cd201f;
+}
+
+#nodes i.fa-tachometer-alt {
+	background: none;
+	content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-md" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="rgb(67 179 128)" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"></path><circle cx="12" cy="13" r="2"></circle><line x1="13.45" y1="11.55" x2="15.5" y2="9.5"></line><path d="M6.4 20a9 9 0 1 1 11.2 0Z"></path></svg>');
+	width: 16px;
+	height: 16px;
+}
+
+#nodes i.fa-user-shield {
+	background: none;
+	content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-md" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="rgb(67 179 128)" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"></path><path d="M9 12l2 2l4 -4"></path><path d="M12 3a12 12 0 0 0 8.5 3a12 12 0 0 1 -8.5 15a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3"></path></svg>');
+	width: 16px;
+	height: 16px;
+}
+
+#pools i.fa-object-group {
+	background: none;
+	content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-md" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="rgb(67 179 128)" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"></path><polyline points="13 3 13 10 19 10 11 21 11 14 5 14 13 3"></polyline></svg>');
+	width: 16px;
+	height: 16px;
+}
+
+.text-break {
+	display: block!important;
+}
+
+.theme-dark .navbar-overlap:after {
+	content: none;
+}
+
+.theme-dark table th {
+	color: #f5f7fb;
+}
+
+.theme-dark .chart rect {
+    fill: #354052;
+}
+
+.theme-dark .chart text {
+    fill: #ffffff;
+    mix-blend-mode: difference;
+    font-weight: 400;
+}
