@@ -1,438 +1,445 @@
 <!doctype html>
 <html lang="en">
-   <head>
-      <meta charset="utf-8"/>
-      <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
-      <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-      <title>TurtleCoin Tools</title>
-      <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-      <meta name="msapplication-TileColor" content="#43b380"/>
-      <meta name="theme-color" content="#43b380"/>
-      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
-      <meta name="apple-mobile-web-app-capable" content="yes"/>
-      <meta name="mobile-web-app-capable" content="yes"/>
-      <meta name="HandheldFriendly" content="True"/>
-      <meta name="MobileOptimized" content="320"/>
-      <link rel="shortcut icon" href="./dist/ico/favicon.ico">
-      <link rel="icon" type="image/png" sizes="32x32" href="./dist/ico/favicon-32x32.png">
-      <link rel="icon" type="image/png" sizes="16x16" href="./dist/ico/favicon-16x16.png">
-      <link rel="manifest" href="./dist/ico/site.webmanifest">
-      <link rel="mask-icon" href="./dist/ico/safari-pinned-tab.svg" color="#43b380">
-      <link href="./dist/css/tabler.min.css" rel="stylesheet"/>
-      <link href="./dist/css/style.css" rel="stylesheet"/>
-      <style>
-         body {
-         display: none;
-         }
-      </style>
-      <script src="./dist/js/third-party.js"></script>       
-      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-      <script src="./dist/js/config.js"></script>
-      <script src="./dist/js/common.js"></script>
-      <script src="./dist/js/TurtleCoinUtils.js"></script>
-      <script src="./dist/js/tools.js"></script>  
-   </head>
-   <body class="antialiased">
-      <div class="page">
-         <header class="navbar navbar-expand-lg navbar-dark navbar-overlap">
-            <div class="container-xl">
-               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu">
-               <span class="navbar-toggler-icon"></span>
-               </button>
-               <a href="./index.html" class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pr-0 pr-md-3">
-               <img src="./dist/img/turtlecoin-logo.svg" alt="Tabler" class="navbar-brand-image">
-               </a>
-               <div class="navbar-nav flex-row order-md-last">
-                  <div class="nav-item d-md-flex">
-                     <a href="#" class="nav-link px-0 mode-toggle">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-md" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                           <path stroke="none" d="M0 0h24v24H0z"></path>
-                           <circle cx="12" cy="12" r="9"></circle>
-                           <line x1="12" y1="3" x2="12" y2="21"></line>
-                           <path d="M12 9l4.65 -4.65"></path>
-                           <path d="M12 14.3l7.37 -7.37"></path>
-                           <path d="M12 19.6l8.85 -8.85"></path>
-                        </svg>
-                     </a>
-                  </div>
-               </div>
-               <div class="collapse navbar-collapse" id="navbar-menu">
-                  <div class="d-flex flex-column flex-lg-row flex-fill align-items-stretch align-items-lg-center">
-                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                           <a class="nav-link" href="./index.html">
-                              <span class="nav-link-icon d-lg-inline-block">
-                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z"></path>
-                                    <polyline points="12 3 20 7.5 20 16.5 12 21 4 16.5 4 7.5 12 3"></polyline>
-                                    <line x1="12" y1="12" x2="20" y2="7.5"></line>
-                                    <line x1="12" y1="12" x2="12" y2="21"></line>
-                                    <line x1="12" y1="12" x2="4" y2="7.5"></line>
-                                    <line x1="16" y1="5.25" x2="8" y2="9.75"></line>
-                                 </svg>
-                              </span>
-                              <span class="nav-link-title">
-                              Block Explorer
-                              </span>
-                           </a>
-                        </li>
-                        <li class="nav-item">
-                           <a class="nav-link" href="./nodes.html">
-                              <span class="nav-link-icon d-lg-inline-block">
-                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-md" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z"></path>
-                                    <rect x="3" y="4" width="18" height="8" rx="3"></rect>
-                                    <rect x="3" y="12" width="18" height="8" rx="3"></rect>
-                                    <line x1="7" y1="8" x2="7" y2="8.01"></line>
-                                    <line x1="7" y1="16" x2="7" y2="16.01"></line>
-                                 </svg>
-                              </span>
-                              <span class="nav-link-title">
-                              Nodes
-                              </span>
-                           </a>
-                        </li>
-                        <li class="nav-item">
-                           <a class="nav-link" href="./pools.html">
-                              <span class="nav-link-icon d-lg-inline-block">
-                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z"></path>
-                                    <polyline points="9 11 12 14 20 6"></polyline>
-                                    <path d="M20 12v6a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h9"></path>
-                                 </svg>
-                              </span>
-                              <span class="nav-link-title">
-                              Pools
-                              </span>
-                           </a>
-                        </li>
-                        <li class="nav-item active">
-                           <a class="nav-link" href="./tools.html">
-                              <span class="nav-link-icon d-lg-inline-block">
-                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z"></path>
-                                    <path d="M12 17.75l-6.172 3.245 1.179-6.873-4.993-4.867 6.9-1.002L12 2l3.086 6.253 6.9 1.002-4.993 4.867 1.179 6.873z"></path>
-                                 </svg>
-                              </span>
-                              <span class="nav-link-title">
-                              Tools
-                              </span>
-                           </a>
-                        </li>
-                        <li class="nav-item">
-                           <a class="nav-link" href="./mixable.html">
-                              <span class="nav-link-icon d-lg-inline-block">
-                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z"></path>
-                                    <rect x="4" y="4" width="6" height="5" rx="2"></rect>
-                                    <rect x="4" y="13" width="6" height="7" rx="2"></rect>
-                                    <rect x="14" y="4" width="6" height="7" rx="2"></rect>
-                                    <rect x="14" y="15" width="6" height="5" rx="2"></rect>
-                                 </svg>
-                              </span>
-                              <span class="nav-link-title">
-                              Mixable Amounts
-                              </span>
-                           </a>
-                        </li>
-                        <li class="nav-item">
-                           <a class="nav-link" href="./charts.html">
-                              <span class="nav-link-icon d-lg-inline-block">
-                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-md" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z"></path>
-                                    <rect x="3" y="12" width="6" height="8" rx="1"></rect>
-                                    <rect x="9" y="8" width="6" height="12" rx="1"></rect>
-                                    <rect x="15" y="4" width="6" height="16" rx="1"></rect>
-                                    <line x1="4" y1="20" x2="18" y2="20"></line>
-                                 </svg>
-                              </span>
-                              <span class="nav-link-title">
-                              Network Charts
-                              </span>
-                           </a>
-                        </li>
-                        <li class="nav-item">
-                           <a class="nav-link" href="./supply.html">
-                              <span class="nav-link-icon d-lg-inline-block">
-                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z"></path>
-                                    <polyline points="14 3 14 8 19 8"></polyline>
-                                    <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"></path>
-                                    <line x1="9" y1="9" x2="10" y2="9"></line>
-                                    <line x1="9" y1="13" x2="15" y2="13"></line>
-                                    <line x1="9" y1="17" x2="15" y2="17"></line>
-                                 </svg>
-                              </span>
-                              <span class="nav-link-title">
-                              Currency Supply
-                              </span>
-                           </a>
-                        </li>
-                     </ul>
-                     <div class="ml-lg-auto pl-lg-4 py-2 py-md-0 order-last flex-grow-1 flex-md-grow-1">
-                        <div>
-                           <div class="input-icon">
-                              <span class="input-icon-addon">
-                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z"></path>
-                                    <circle cx="10" cy="10" r="7"></circle>
-                                    <line x1="21" y1="21" x2="15" y2="15"></line>
-                                 </svg>
-                              </span>
-                              <input type="text" id="searchValue" class="form-control form-control-dark" placeholder="Search by Block Height / Hash, Transaction Hash, or Payment Id">
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </header>
-         <div class="content">
-            <div class="container-xl">
-               <!-- Page title -->
-               <div class="page-header text-white">
-                  <div class="row align-items-center">
-                     <div class="col-auto">
-                        <h2 class="page-title">
-                           TurtleCoin Tools
-                        </h2>
-                     </div>
-                  </div>
-               </div>
-               <div class="row row-deck row-cards">
-                  <div class="col-lg-12">
-                     <div class="card">
-                        <div class="card-header">
-                           <h4 class="card-title">Client Side Wallet Generator</h4>
-                        </div>
-                        <div class="card-body">
-                           <div class="alert alert-danger alert-dismissible" role="alert">
-                              <svg xmlns="http://www.w3.org/2000/svg" class="icon mr-1" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                 <path stroke="none" d="M0 0h24v24H0z"></path>
-                                 <circle cx="12" cy="12" r="9"></circle>
-                                 <line x1="12" y1="8" x2="12" y2="12"></line>
-                                 <line x1="12" y1="16" x2="12.01" y2="16"></line>
-                              </svg>
-                              <b>Fields in red must be kept secret! Do not share with others!</b>
-                              <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-                           </div>
-                           <form>
-                              <div class="form-group mb-3 row">
-                                 <label class="form-label col-3 col-form-label">Random Entropy</label>
-                                 <div class="col">
-                                    <div class="input-group mb-2">
-                                       <input type="text" class="form-control" id="entropy" placeholder="Type Some Random Characters Here">
-                                       <button class="btn btn-primary col-lg-3 col-12 w-150" id="generateWalletButton" type="button">Generate Wallet</button>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="form-group mb-3 row">
-                                 <label class="form-label col-3 col-form-label">
-                                    Wallet Seed 
-                                    <svg data-brackets-id="11364" xmlns="http://www.w3.org/2000/svg" class="icon mr-1" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="rgb(205 32 31)" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                       <path data-brackets-id="11365" stroke="none" d="M0 0h24v24H0z"></path>
-                                       <circle data-brackets-id="11366" cx="12" cy="12" r="9"></circle>
-                                       <line data-brackets-id="11367" x1="12" y1="8" x2="12" y2="12"></line>
-                                       <line data-brackets-id="11368" x1="12" y1="16" x2="12.01" y2="16"></line>
-                                    </svg>
-                                 </label>
-                                 <div class="col">
-                                    <div class="input-group mb-2">
-                                       <input type="text" class="form-control" id="seed" placeholder="Wallet Seed">
-                                       <button class="btn btn-primary col-lg-3 col-12 w-150" id="restoreFromSeedButton" type="button">Restore Wallet</button>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="form-group mb-3 row">
-                                 <label class="form-label col-3 col-form-label">
-                                    Mnemonic Words 
-                                    <svg data-brackets-id="11364" xmlns="http://www.w3.org/2000/svg" class="icon mr-1" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="rgb(205 32 31)" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                       <path data-brackets-id="11365" stroke="none" d="M0 0h24v24H0z"></path>
-                                       <circle data-brackets-id="11366" cx="12" cy="12" r="9"></circle>
-                                       <line data-brackets-id="11367" x1="12" y1="8" x2="12" y2="12"></line>
-                                       <line data-brackets-id="11368" x1="12" y1="16" x2="12.01" y2="16"></line>
-                                    </svg>
-                                 </label>
-                                 <div class="col">
-                                    <div class="input-group mb-2">
-                                       <textarea rows="2" class="form-control" id="mnemonic" placeholder="Mnemonic Words"></textarea>
-                                       <button class="btn btn-primary col-lg-3 col-12 w-150" id="restoreFromMnemonicButton" type="button">Restore Wallet</button>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="form-group mb-3 row">
-                                 <label class="form-label col-3 col-form-label">
-                                    Private Spend Key 
-                                    <svg data-brackets-id="11364" xmlns="http://www.w3.org/2000/svg" class="icon mr-1" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="rgb(205 32 31)" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                       <path data-brackets-id="11365" stroke="none" d="M0 0h24v24H0z"></path>
-                                       <circle data-brackets-id="11366" cx="12" cy="12" r="9"></circle>
-                                       <line data-brackets-id="11367" x1="12" y1="8" x2="12" y2="12"></line>
-                                       <line data-brackets-id="11368" x1="12" y1="16" x2="12.01" y2="16"></line>
-                                    </svg>
-                                 </label>
-                                 <div class="col">
-                                    <input type="text" class="form-control" id="newPrivateSpendKey" placeholder="Private Spend Key">
-                                 </div>
-                              </div>
-                              <div class="form-group mb-3 row">
-                                 <label class="form-label col-3 col-form-label">Public Spend Key</label>
-                                 <div class="col">
-                                    <input type="text" class="form-control" id="newPublicSpendKey" placeholder="Public Spend Key">
-                                 </div>
-                              </div>
-                              <div class="form-group mb-3 row">
-                                 <label class="form-label col-3 col-form-label">
-                                    Private View Key 
-                                    <svg data-brackets-id="11364" xmlns="http://www.w3.org/2000/svg" class="icon mr-1" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="rgb(205 32 31)" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                       <path data-brackets-id="11365" stroke="none" d="M0 0h24v24H0z"></path>
-                                       <circle data-brackets-id="11366" cx="12" cy="12" r="9"></circle>
-                                       <line data-brackets-id="11367" x1="12" y1="8" x2="12" y2="12"></line>
-                                       <line data-brackets-id="11368" x1="12" y1="16" x2="12.01" y2="16"></line>
-                                    </svg>
-                                 </label>
-                                 <div class="col">
-                                    <input type="text" class="form-control" id="newPrivateViewKey" placeholder="Private View Key">
-                                 </div>
-                              </div>
-                              <div class="form-group mb-3 row">
-                                 <label class="form-label col-3 col-form-label">Public View Key</label>
-                                 <div class="col">
-                                    <input type="text" class="form-control" id="newPublicViewKey" placeholder="Public View Key">
-                                 </div>
-                              </div>
-                              <div class="form-group mb-3 row">
-                                 <label class="form-label col-3 col-form-label">Wallet Address</label>
-                                 <div class="col">
-                                    <input type="text" class="form-control" id="newWalletAddress" placeholder="Wallet Address">
-                                 </div>
-                              </div>
-                           </form>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-lg-12">
-                     <div class="card">
-                        <div class="card-header">
-                           <h4 class="card-title">Address Encoder / Decoder</h4>
-                        </div>
-                        <div class="card-body">
-                           <form>
-                              <div class="form-group mb-3 row">
-                                 <div class="input-group mb-2">
-                                    <input type="text" class="form-control" id="walletAddress" placeholder="Wallet Address">
-                                    <button class="btn btn-primary col-lg-3 col-12 w-150" id="decodeButton" type="button">Decode Address</button>
-                                 </div>
-                              </div>
-                              <div class="form-group mb-3 row">
-                                 <label class="form-label col-3 col-form-label">Public Spend Key</label>
-                                 <div class="col">
-                                    <input type="text" class="form-control" id="publicSpendKey" placeholder="Public Spend Key">
-                                 </div>
-                              </div>
-                              <div class="form-group mb-3 row">
-                                 <label class="form-label col-3 col-form-label">Public View Key</label>
-                                 <div class="col">
-                                    <input type="text" class="form-control" id="publicViewKey" placeholder="Public View Key">
-                                 </div>
-                              </div>
-                              <div class="form-group mb-3 row">
-                                 <label class="form-label col-3 col-form-label">Payment ID</label>
-                                 <div class="col">
-                                    <div class="input-group mb-2">
-                                       <input type="text" class="form-control" id="paymentId" placeholder="Payment ID">
-                                       <button class="btn btn-primary col-lg-3 col-12 w-150" id="generateRandomPaymentIDButton" type="button">Generate Random</button>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="form-group mb-3 row">
-                                 <label class="form-label col-3 col-form-label">Encoded Address</label>
-                                 <div class="col">
-                                    <div class="input-group mb-2">
-                                       <input type="text" class="form-control" id="encodedAddress" placeholder="Encoded Address">
-                                       <button class="btn btn-primary col-lg-3 col-12 w-150" id="encodeAddressButton" type="button">Encoded Address</button>
-                                    </div>
-                                 </div>
-                              </div>
-                           </form>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-lg-12">
-                     <div class="card">
-                        <div class="card-header">
-                           <h4 class="card-title">Message Signing</h4>
-                        </div>
-                        <div class="card-body">
-                           <form>
-                              <div class="form-group mb-3 row">
-                                 <div class="col">
-                                    <textarea rows="5" class="form-control" id="sign_message" placeholder="Message"></textarea>
-                                 </div>
-                              </div>
-                              <div class="form-group mb-3 row">
-                                 <label class="form-label col-3 col-form-label">Signer</label>
-                                 <div class="col">
-                                    <input type="text" class="form-control" id="sign_signer" placeholder="Public Key / Wallet Address">
-                                 </div>
-                              </div>
-                              <div class="form-group mb-3 row">
-                                 <label class="form-label col-3 col-form-label">Signature</label>
-                                 <div class="col">
-                                    <div class="input-group mb-2">
-                                       <input type="text" class="form-control" id="sign_signature" placeholder="Signature">
-                                       <button class="btn btn-primary col-lg-3 col-12 w-150" id="sign_check" type="button">Check Signature</button>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="form-group mb-3 row">
-                                 <label class="form-label col-3 col-form-label">
-                                    Private Key 
-                                    <svg data-brackets-id="11364" xmlns="http://www.w3.org/2000/svg" class="icon mr-1" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="rgb(205 32 31)" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                       <path data-brackets-id="11365" stroke="none" d="M0 0h24v24H0z"></path>
-                                       <circle data-brackets-id="11366" cx="12" cy="12" r="9"></circle>
-                                       <line data-brackets-id="11367" x1="12" y1="8" x2="12" y2="12"></line>
-                                       <line data-brackets-id="11368" x1="12" y1="16" x2="12.01" y2="16"></line>
-                                    </svg>
-                                 </label>
-                                 <div class="col">
-                                    <div class="input-group mb-2">
-                                       <input type="text" class="form-control" id="sign_private" placeholder="Private Key">
-                                       <button class="btn btn-primary col-lg-3 col-12 w-150" id="sign_generate" type="button">Sign Message</button>
-                                    </div>
-                                 </div>
-                              </div>
-                           </form>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <footer class="footer footer-transparent">
-               <div class="container">
-                  <div class="row text-center align-items-center flex-row-reverse">
-                     <div class="col-lg-auto ml-lg-auto">
-                        <ul class="list-inline list-inline-dots mb-0">
-                           <li class="list-inline-item"><a href="https://github.com/l33d4n/trtl-explorer" target="_blank" class="link-secondary">Source code</a></li>
-                        </ul>
-                     </div>
-                     <div class="col-12 col-lg-auto mt-3 mt-lg-0">
-                        Copyright © 2020 Powerd By
-                        <a href="https://turtlepay.io/" target="_blank" class="link-secondary">TurtlePay</a>.
-                        The source code is licensed under AGPL-3.0.
-                     </div>
-                  </div>
-               </div>
-            </footer>
-         </div>
-      </div>
-      <!-- Libs JS -->
-      <script src="./dist/js/bootstrap.bundle.min.js"></script>
-      <!-- Tabler Core -->
-      <script src="./dist/js/tabler.min.js"></script>
-      <!-- Dark Mode -->
-      <script src="./dist/js/dark-mode.js"></script>
-      <script>
-         document.body.style.display = "block"
-      </script>
-   </body>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>TurtleCoin Tools</title>
+	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+	<meta property="og:title" content="TurtleCoin Block Explorer">
+	<meta name="Description" content="Block Explorer for the TurtleCoin network that is a fun, fast, and easy way to send money to friends and businesses.">
+	<meta property="og:description" content="Block Explorer for the TurtleCoin network that is a fun, fast, and easy way to send money to friends and businesses.">
+	<meta property="og:image" content="./dist/img/turtlecoin_shield.png">
+	<meta name="msapplication-TileColor" content="#43b380" />
+	<meta name="theme-color" content="#43b380" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="mobile-web-app-capable" content="yes" />
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="MobileOptimized" content="320" />
+	<link rel="shortcut icon" href="./dist/ico/favicon.ico">
+	<link rel="icon" type="image/png" sizes="32x32" href="./dist/ico/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="./dist/ico/favicon-16x16.png">
+	<link rel="manifest" href="./dist/ico/site.webmanifest">
+	<link rel="mask-icon" href="./dist/ico/safari-pinned-tab.svg" color="#43b380">
+	<link href="./dist/css/tabler.min.css" rel="stylesheet" />
+	<link href="./dist/css/style.css" rel="stylesheet" />
+	<style>
+		body {
+			display: none;
+		}
+	</style>
+	<script src="./dist/js/third-party.js"></script>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script src="./dist/js/config.js"></script>
+	<script src="./dist/js/common.js"></script>
+	<script src="./dist/js/TurtleCoinUtils.js"></script>
+	<script src="./dist/js/tools.js"></script>
+</head>
+
+<body class="antialiased">
+	<div class="page">
+		<header class="navbar navbar-expand-lg navbar-dark navbar-overlap">
+			<div class="container-xl">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<a href="./index.html" class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pr-0 pr-md-3">
+					<img src="./dist/img/turtlecoin-logo.svg" alt="Tabler" class="navbar-brand-image">
+				</a>
+				<div class="navbar-nav flex-row order-md-last">
+					<div class="nav-item d-md-flex">
+						<a href="#" class="nav-link px-0 mode-toggle">
+							<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-md" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+								<path stroke="none" d="M0 0h24v24H0z"></path>
+								<circle cx="12" cy="12" r="9"></circle>
+								<line x1="12" y1="3" x2="12" y2="21"></line>
+								<path d="M12 9l4.65 -4.65"></path>
+								<path d="M12 14.3l7.37 -7.37"></path>
+								<path d="M12 19.6l8.85 -8.85"></path>
+							</svg>
+						</a>
+					</div>
+				</div>
+				<div class="collapse navbar-collapse" id="navbar-menu">
+					<div class="d-flex flex-column flex-lg-row flex-fill align-items-stretch align-items-lg-center">
+						<ul class="navbar-nav">
+							<li class="nav-item">
+								<a class="nav-link" href="./index.html">
+									<span class="nav-link-icon d-lg-inline-block">
+										<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+											<path stroke="none" d="M0 0h24v24H0z"></path>
+											<polyline points="12 3 20 7.5 20 16.5 12 21 4 16.5 4 7.5 12 3"></polyline>
+											<line x1="12" y1="12" x2="20" y2="7.5"></line>
+											<line x1="12" y1="12" x2="12" y2="21"></line>
+											<line x1="12" y1="12" x2="4" y2="7.5"></line>
+											<line x1="16" y1="5.25" x2="8" y2="9.75"></line>
+										</svg>
+									</span>
+									<span class="nav-link-title">
+										Block Explorer
+									</span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="./nodes.html">
+									<span class="nav-link-icon d-lg-inline-block">
+										<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-md" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+											<path stroke="none" d="M0 0h24v24H0z"></path>
+											<rect x="3" y="4" width="18" height="8" rx="3"></rect>
+											<rect x="3" y="12" width="18" height="8" rx="3"></rect>
+											<line x1="7" y1="8" x2="7" y2="8.01"></line>
+											<line x1="7" y1="16" x2="7" y2="16.01"></line>
+										</svg>
+									</span>
+									<span class="nav-link-title">
+										Nodes
+									</span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="./pools.html">
+									<span class="nav-link-icon d-lg-inline-block">
+										<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+											<path stroke="none" d="M0 0h24v24H0z"></path>
+											<polyline points="9 11 12 14 20 6"></polyline>
+											<path d="M20 12v6a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h9"></path>
+										</svg>
+									</span>
+									<span class="nav-link-title">
+										Pools
+									</span>
+								</a>
+							</li>
+							<li class="nav-item active">
+								<a class="nav-link" href="./tools.html">
+									<span class="nav-link-icon d-lg-inline-block">
+										<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+											<path stroke="none" d="M0 0h24v24H0z"></path>
+											<path d="M12 17.75l-6.172 3.245 1.179-6.873-4.993-4.867 6.9-1.002L12 2l3.086 6.253 6.9 1.002-4.993 4.867 1.179 6.873z"></path>
+										</svg>
+									</span>
+									<span class="nav-link-title">
+										Tools
+									</span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="./mixable.html">
+									<span class="nav-link-icon d-lg-inline-block">
+										<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+											<path stroke="none" d="M0 0h24v24H0z"></path>
+											<rect x="4" y="4" width="6" height="5" rx="2"></rect>
+											<rect x="4" y="13" width="6" height="7" rx="2"></rect>
+											<rect x="14" y="4" width="6" height="7" rx="2"></rect>
+											<rect x="14" y="15" width="6" height="5" rx="2"></rect>
+										</svg>
+									</span>
+									<span class="nav-link-title">
+										Mixable Amounts
+									</span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="./charts.html">
+									<span class="nav-link-icon d-lg-inline-block">
+										<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-md" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+											<path stroke="none" d="M0 0h24v24H0z"></path>
+											<rect x="3" y="12" width="6" height="8" rx="1"></rect>
+											<rect x="9" y="8" width="6" height="12" rx="1"></rect>
+											<rect x="15" y="4" width="6" height="16" rx="1"></rect>
+											<line x1="4" y1="20" x2="18" y2="20"></line>
+										</svg>
+									</span>
+									<span class="nav-link-title">
+										Network Charts
+									</span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="./supply.html">
+									<span class="nav-link-icon d-lg-inline-block">
+										<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+											<path stroke="none" d="M0 0h24v24H0z"></path>
+											<polyline points="14 3 14 8 19 8"></polyline>
+											<path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"></path>
+											<line x1="9" y1="9" x2="10" y2="9"></line>
+											<line x1="9" y1="13" x2="15" y2="13"></line>
+											<line x1="9" y1="17" x2="15" y2="17"></line>
+										</svg>
+									</span>
+									<span class="nav-link-title">
+										Currency Supply
+									</span>
+								</a>
+							</li>
+						</ul>
+						<div class="ml-lg-auto pl-lg-4 py-2 py-md-0 order-last flex-grow-1 flex-md-grow-1">
+							<div>
+								<div class="input-icon">
+									<span class="input-icon-addon">
+										<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+											<path stroke="none" d="M0 0h24v24H0z"></path>
+											<circle cx="10" cy="10" r="7"></circle>
+											<line x1="21" y1="21" x2="15" y2="15"></line>
+										</svg>
+									</span>
+									<input type="text" id="searchValue" class="form-control form-control-dark" placeholder="Search by Block Height / Hash, Transaction Hash, or Payment Id">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div class="content">
+			<div class="container-xl">
+				<!-- Page title -->
+				<div class="page-header text-white">
+					<div class="row align-items-center">
+						<div class="col-auto">
+							<h2 class="page-title">
+								TurtleCoin Tools
+							</h2>
+						</div>
+					</div>
+				</div>
+				<div class="row row-deck row-cards">
+					<div class="col-lg-12">
+						<div class="card">
+							<div class="card-header">
+								<h4 class="card-title">Client Side Wallet Generator</h4>
+							</div>
+							<div class="card-body">
+								<div class="alert alert-danger alert-dismissible" role="alert">
+									<svg xmlns="http://www.w3.org/2000/svg" class="icon mr-1" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+										<path stroke="none" d="M0 0h24v24H0z"></path>
+										<circle cx="12" cy="12" r="9"></circle>
+										<line x1="12" y1="8" x2="12" y2="12"></line>
+										<line x1="12" y1="16" x2="12.01" y2="16"></line>
+									</svg>
+									<b>Fields in red must be kept secret! Do not share with others!</b>
+									<a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+								</div>
+								<form>
+									<div class="form-group mb-3 row">
+										<label class="form-label col-3 col-form-label">Random Entropy</label>
+										<div class="col">
+											<div class="input-group mb-2">
+												<input type="text" class="form-control" id="entropy" placeholder="Type Some Random Characters Here">
+												<button class="btn btn-primary col-lg-3 col-12 w-150" id="generateWalletButton" type="button">Generate Wallet</button>
+											</div>
+										</div>
+									</div>
+									<div class="form-group mb-3 row">
+										<label class="form-label col-3 col-form-label">
+											Wallet Seed
+											<svg data-brackets-id="11364" xmlns="http://www.w3.org/2000/svg" class="icon mr-1" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="rgb(205 32 31)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+												<path data-brackets-id="11365" stroke="none" d="M0 0h24v24H0z"></path>
+												<circle data-brackets-id="11366" cx="12" cy="12" r="9"></circle>
+												<line data-brackets-id="11367" x1="12" y1="8" x2="12" y2="12"></line>
+												<line data-brackets-id="11368" x1="12" y1="16" x2="12.01" y2="16"></line>
+											</svg>
+										</label>
+										<div class="col">
+											<div class="input-group mb-2">
+												<input type="text" class="form-control" id="seed" placeholder="Wallet Seed">
+												<button class="btn btn-primary col-lg-3 col-12 w-150" id="restoreFromSeedButton" type="button">Restore Wallet</button>
+											</div>
+										</div>
+									</div>
+									<div class="form-group mb-3 row">
+										<label class="form-label col-3 col-form-label">
+											Mnemonic Words
+											<svg data-brackets-id="11364" xmlns="http://www.w3.org/2000/svg" class="icon mr-1" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="rgb(205 32 31)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+												<path data-brackets-id="11365" stroke="none" d="M0 0h24v24H0z"></path>
+												<circle data-brackets-id="11366" cx="12" cy="12" r="9"></circle>
+												<line data-brackets-id="11367" x1="12" y1="8" x2="12" y2="12"></line>
+												<line data-brackets-id="11368" x1="12" y1="16" x2="12.01" y2="16"></line>
+											</svg>
+										</label>
+										<div class="col">
+											<div class="input-group mb-2">
+												<textarea rows="2" class="form-control" id="mnemonic" placeholder="Mnemonic Words"></textarea>
+												<button class="btn btn-primary col-lg-3 col-12 w-150" id="restoreFromMnemonicButton" type="button">Restore Wallet</button>
+											</div>
+										</div>
+									</div>
+									<div class="form-group mb-3 row">
+										<label class="form-label col-3 col-form-label">
+											Private Spend Key
+											<svg data-brackets-id="11364" xmlns="http://www.w3.org/2000/svg" class="icon mr-1" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="rgb(205 32 31)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+												<path data-brackets-id="11365" stroke="none" d="M0 0h24v24H0z"></path>
+												<circle data-brackets-id="11366" cx="12" cy="12" r="9"></circle>
+												<line data-brackets-id="11367" x1="12" y1="8" x2="12" y2="12"></line>
+												<line data-brackets-id="11368" x1="12" y1="16" x2="12.01" y2="16"></line>
+											</svg>
+										</label>
+										<div class="col">
+											<input type="text" class="form-control" id="newPrivateSpendKey" placeholder="Private Spend Key">
+										</div>
+									</div>
+									<div class="form-group mb-3 row">
+										<label class="form-label col-3 col-form-label">Public Spend Key</label>
+										<div class="col">
+											<input type="text" class="form-control" id="newPublicSpendKey" placeholder="Public Spend Key">
+										</div>
+									</div>
+									<div class="form-group mb-3 row">
+										<label class="form-label col-3 col-form-label">
+											Private View Key
+											<svg data-brackets-id="11364" xmlns="http://www.w3.org/2000/svg" class="icon mr-1" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="rgb(205 32 31)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+												<path data-brackets-id="11365" stroke="none" d="M0 0h24v24H0z"></path>
+												<circle data-brackets-id="11366" cx="12" cy="12" r="9"></circle>
+												<line data-brackets-id="11367" x1="12" y1="8" x2="12" y2="12"></line>
+												<line data-brackets-id="11368" x1="12" y1="16" x2="12.01" y2="16"></line>
+											</svg>
+										</label>
+										<div class="col">
+											<input type="text" class="form-control" id="newPrivateViewKey" placeholder="Private View Key">
+										</div>
+									</div>
+									<div class="form-group mb-3 row">
+										<label class="form-label col-3 col-form-label">Public View Key</label>
+										<div class="col">
+											<input type="text" class="form-control" id="newPublicViewKey" placeholder="Public View Key">
+										</div>
+									</div>
+									<div class="form-group mb-3 row">
+										<label class="form-label col-3 col-form-label">Wallet Address</label>
+										<div class="col">
+											<input type="text" class="form-control" id="newWalletAddress" placeholder="Wallet Address">
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-12">
+						<div class="card">
+							<div class="card-header">
+								<h4 class="card-title">Address Encoder / Decoder</h4>
+							</div>
+							<div class="card-body">
+								<form>
+									<div class="form-group mb-3 row">
+										<div class="input-group mb-2">
+											<input type="text" class="form-control" id="walletAddress" placeholder="Wallet Address">
+											<button class="btn btn-primary col-lg-3 col-12 w-150" id="decodeButton" type="button">Decode Address</button>
+										</div>
+									</div>
+									<div class="form-group mb-3 row">
+										<label class="form-label col-3 col-form-label">Public Spend Key</label>
+										<div class="col">
+											<input type="text" class="form-control" id="publicSpendKey" placeholder="Public Spend Key">
+										</div>
+									</div>
+									<div class="form-group mb-3 row">
+										<label class="form-label col-3 col-form-label">Public View Key</label>
+										<div class="col">
+											<input type="text" class="form-control" id="publicViewKey" placeholder="Public View Key">
+										</div>
+									</div>
+									<div class="form-group mb-3 row">
+										<label class="form-label col-3 col-form-label">Payment ID</label>
+										<div class="col">
+											<div class="input-group mb-2">
+												<input type="text" class="form-control" id="paymentId" placeholder="Payment ID">
+												<button class="btn btn-primary col-lg-3 col-12 w-150" id="generateRandomPaymentIDButton" type="button">Generate Random</button>
+											</div>
+										</div>
+									</div>
+									<div class="form-group mb-3 row">
+										<label class="form-label col-3 col-form-label">Encoded Address</label>
+										<div class="col">
+											<div class="input-group mb-2">
+												<input type="text" class="form-control" id="encodedAddress" placeholder="Encoded Address">
+												<button class="btn btn-primary col-lg-3 col-12 w-150" id="encodeAddressButton" type="button">Encoded Address</button>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-12">
+						<div class="card">
+							<div class="card-header">
+								<h4 class="card-title">Message Signing</h4>
+							</div>
+							<div class="card-body">
+								<form>
+									<div class="form-group mb-3 row">
+										<div class="col">
+											<textarea rows="5" class="form-control" id="sign_message" placeholder="Message"></textarea>
+										</div>
+									</div>
+									<div class="form-group mb-3 row">
+										<label class="form-label col-3 col-form-label">Signer</label>
+										<div class="col">
+											<input type="text" class="form-control" id="sign_signer" placeholder="Public Key / Wallet Address">
+										</div>
+									</div>
+									<div class="form-group mb-3 row">
+										<label class="form-label col-3 col-form-label">Signature</label>
+										<div class="col">
+											<div class="input-group mb-2">
+												<input type="text" class="form-control" id="sign_signature" placeholder="Signature">
+												<button class="btn btn-primary col-lg-3 col-12 w-150" id="sign_check" type="button">Check Signature</button>
+											</div>
+										</div>
+									</div>
+									<div class="form-group mb-3 row">
+										<label class="form-label col-3 col-form-label">
+											Private Key
+											<svg data-brackets-id="11364" xmlns="http://www.w3.org/2000/svg" class="icon mr-1" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="rgb(205 32 31)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+												<path data-brackets-id="11365" stroke="none" d="M0 0h24v24H0z"></path>
+												<circle data-brackets-id="11366" cx="12" cy="12" r="9"></circle>
+												<line data-brackets-id="11367" x1="12" y1="8" x2="12" y2="12"></line>
+												<line data-brackets-id="11368" x1="12" y1="16" x2="12.01" y2="16"></line>
+											</svg>
+										</label>
+										<div class="col">
+											<div class="input-group mb-2">
+												<input type="text" class="form-control" id="sign_private" placeholder="Private Key">
+												<button class="btn btn-primary col-lg-3 col-12 w-150" id="sign_generate" type="button">Sign Message</button>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<footer class="footer footer-transparent">
+				<div class="container">
+					<div class="row text-center align-items-center flex-row-reverse">
+						<div class="col-lg-auto ml-lg-auto">
+							<ul class="list-inline list-inline-dots mb-0">
+								<li class="list-inline-item"><a href="https://github.com/turtlecoin/blockchain-explorer" target="_blank" class="link-secondary">Source code</a></li>
+							</ul>
+						</div>
+						<div class="col-12 col-lg-auto mt-3 mt-lg-0">
+							Copyright © 2020 Powerd By
+							<a href="https://turtlepay.io/" target="_blank" class="link-secondary">TurtlePay</a>.
+							The source code is licensed under AGPL-3.0.
+						</div>
+					</div>
+				</div>
+			</footer>
+		</div>
+	</div>
+	<!-- Libs JS -->
+	<script src="./dist/js/bootstrap.bundle.min.js"></script>
+	<!-- Tabler Core -->
+	<script src="./dist/js/tabler.min.js"></script>
+	<!-- Dark Mode -->
+	<script src="./dist/js/dark-mode.js"></script>
+	<script>
+		document.body.style.display = "block"
+
+	</script>
+</body>
+
 </html>
