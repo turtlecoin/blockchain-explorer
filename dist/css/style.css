@@ -105,6 +105,13 @@ a:hover {
 	height: 16px;
 }
 
+#nodes i.fa-warning {
+	background: none;
+	content: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg' style='width:24px;height:24px' viewBox='0 0 24 24' stroke='rgb(205 32 31)' stroke-width='0.7' fill='currentColor' %3E%3Cpath  d='M11,15H13V17H11V15M11,7H13V13H11V7M12,2C6.47,2 2,6.5 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20Z' /%3E%3C/svg%3E");
+	width: 16px;
+	height: 16px;
+}
+
 #pools i.fa-object-group {
 	background: none;
 	content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-md" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="rgb(67 179 128)" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"></path><polyline points="13 3 13 10 19 10 11 21 11 14 5 14 13 3"></polyline></svg>');

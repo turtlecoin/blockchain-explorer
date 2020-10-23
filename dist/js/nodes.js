@@ -31,6 +31,17 @@ $(document).ready(function () {
         }
       },
       {
+        targets: [3],
+        render: function (data, type, row, meta) {
+          if (type === 'display') {
+            data = data.version + data.warning
+          } else if (type === 'sort') {
+            data = data.version
+          }
+          return data
+        }
+      },
+      {
         targets: [5],
         type: 'num',
         render: function (data, type, row, meta) {
@@ -106,7 +117,10 @@ function getAndDrawNodeStats () {
             cache: (node.cache) ? ' <i class="fas fa-tachometer-alt has-trtl-green" title="Blockchain Cache"></i>' : ''
           },
           (node.version && node.version !== 'offline') ? numeral(node.fee.amount / Math.pow(10, ExplorerConfig.decimalPoints)).format('0,0.00') : '',
-          (node.version && node.version !== 'offline') ? node.version : '',
+          {
+            version: (node.version && node.version !== 'offline') ? node.version : '',
+            warning: versionCompare(node.version, ExplorerConfig.currentVersion) ? ' <i class="fas fa-warning has-trtl-red" title="Node version is out of date"></i>' : '',
+          },
           (node.version && node.version !== 'offline') ? numeral(node.height).format('0,0') : '',
           {
             offline: !(node.version && node.version !== 'offline'),
