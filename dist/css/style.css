@@ -138,6 +138,7 @@ a:hover {
 #recentBlocks tbody tr td:nth-child(3),
 #transactions tbody tr td:first-child,
 #outputs tbody tr td:nth-child(2),
+#inputs tbody tr td:nth-child(2),
 #mixableAmounts tbody tr td:nth-child(5),
 #blockHeaderHash,
 #previousBlockHash,
