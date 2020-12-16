@@ -134,6 +134,10 @@ a:hover {
     font-weight: 400;
 }
 
+.is-ours {
+	background: #43b380;
+}
+
 #transactionPool tbody tr td:nth-child(4),
 #recentBlocks tbody tr td:nth-child(3),
 #transactions tbody tr td:first-child,
