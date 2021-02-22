@@ -10,6 +10,8 @@ const ExplorerConfig = {
   emissionCurveInterval: 20000,
   emissionCurveDataPoints: 15000,
   addressPrefix: 3914525,
+  v2LaunchHeight: 4000000,
+  v1DeathHeight: 5000000,
   forkHeights: [
     187000,
     350000,

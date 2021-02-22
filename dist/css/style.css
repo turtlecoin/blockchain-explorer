@@ -153,3 +153,8 @@ a:hover {
 #fingerPrintRow {
 	font-family: monospace;
 }
+
+#v2Status, #v2Status tbody tr th {
+	background: #8e7cc3;
+	color: #f5f7fb;
+}
