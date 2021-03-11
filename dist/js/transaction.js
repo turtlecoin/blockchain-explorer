@@ -1,5 +1,6 @@
 $(document).ready(function () {
   const hash = getQueryStringParam('hash')
+  const keyImage = getQueryStringParam('keyImage')
 
   if (!isHash(hash)) {
     return window.location = './?search=' + hash
@@ -119,6 +120,16 @@ $(document).ready(function () {
           ])
         }
         inputs.draw(false)
+
+        if (keyImage) {
+          inputs.rows().every(function (idx) {
+            const data = this.data()
+
+            if (data[1] === keyImage) {
+              $(inputs.row(idx).nodes()).addClass('is-ours')
+            }
+          })
+        }
 
         localData.outputs = $('#outputs').DataTable({
           columnDefs: [{

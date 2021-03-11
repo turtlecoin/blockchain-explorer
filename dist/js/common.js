@@ -134,15 +134,39 @@ function searchForTerm (term) {
                   /* It's a payment Id, let's display the list */
                   window.location = './paymentid.html?id=' + term
                 } else {
-                  if (!searchTransactionPool(term)) {
-                    setSearchValueErrorState(true)
-                  }
+                  $.ajax({
+                    url: ExplorerConfig.apiBaseUrl + '/keyImage/' + term + '?random=' + (new Date()).getTime(),
+                    dataType: 'json',
+                    type: 'GET',
+                    cache: 'false',
+                    success: function(data) {
+                      /* Great, we found a match, now redirect there */
+                      window.location = './transaction.html?hash=' + data.tx + '&keyImage=' + data.keyImage
+                    },
+                    error: function () {
+                      if (!searchTransactionPool(term)) {
+                        setSearchValueErrorState(true)
+                      }
+                    }
+                  })
                 }
               },
               error: function () {
-                if (!searchTransactionPool(term)) {
-                  setSearchValueErrorState(true)
-                }
+                $.ajax({
+                  url: ExplorerConfig.apiBaseUrl + '/keyImage/' + term + '?random=' + (new Date()).getTime(),
+                  dataType: 'json',
+                  type: 'GET',
+                  cache: 'false',
+                  success: function(data) {
+                    /* Great, we found a match, now redirect there */
+                    window.location = './transaction.html?hash=' + data.tx + '&keyimage=' + data.keyImage
+                  },
+                  error: function () {
+                    if (!searchTransactionPool(term)) {
+                      setSearchValueErrorState(true)
+                    }
+                  }
+                })
               }
             })
           }
