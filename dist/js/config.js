@@ -1,5 +1,6 @@
 const ExplorerConfig = {
   apiBaseUrl: 'https://blockapi.turtlepay.io',
+  soloApiBaseUrl: 'https://solo.turtlecoin.dev',
   ticker: 'TRTL',
   maxSupply: 100000000000000,
   emissionSpeed: 25,

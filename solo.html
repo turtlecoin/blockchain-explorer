@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>TurtleCoin Solo Mining</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <meta property="og:title" content="TurtleCoin Block Explorer">
+    <meta name="Description" content="Block Explorer for the TurtleCoin network that is a fun, fast, and easy way to send money to friends and businesses.">
+    <meta property="og:description" content="Block Explorer for the TurtleCoin network that is a fun, fast, and easy way to send money to friends and businesses.">
+    <meta property="og:image" content="./dist/img/turtlecoin_shield.png">
+    <meta name="msapplication-TileColor" content="#43b380" />
+    <meta name="theme-color" content="#43b380" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <link rel="shortcut icon" href="./dist/ico/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="./dist/ico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./dist/ico/favicon-16x16.png">
+    <link rel="manifest" href="./dist/ico/site.webmanifest">
+    <link rel="mask-icon" href="./dist/ico/safari-pinned-tab.svg" color="#43b380">
+    <link href="./dist/css/tabler.min.css" rel="stylesheet" />
+    <link href="./dist/css/style.css" rel="stylesheet" />
+    <style>
+        body {
+            display: none;
+        }
+    </style>
+    <script src="./dist/js/third-party.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="./dist/js/config.js"></script>
+    <script src="./dist/js/common.js"></script>
+    <script src="./dist/js/solo.js"></script>
+</head>
+<body class="antialiased">
+<div class="page">
+    <header class="navbar navbar-expand-lg navbar-dark navbar-overlap">
+        <div class="container-xl">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a href="./index.html" class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pr-0 pr-md-3">
+                <img src="./dist/img/turtlecoin-logo.svg" alt="Tabler" class="navbar-brand-image">
+            </a>
+            <div class="navbar-nav flex-row order-md-last">
+                <div class="nav-item d-md-flex">
+                    <a href="#" class="nav-link px-0 mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-md" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z"></path>
+                            <circle cx="12" cy="12" r="9"></circle>
+                            <line x1="12" y1="3" x2="12" y2="21"></line>
+                            <path d="M12 9l4.65 -4.65"></path>
+                            <path d="M12 14.3l7.37 -7.37"></path>
+                            <path d="M12 19.6l8.85 -8.85"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-menu">
+                <div class="d-flex flex-column flex-lg-row flex-fill align-items-stretch align-items-lg-center">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="./index.html">
+                              <span class="nav-link-icon d-lg-inline-block">
+                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z"></path>
+                                    <polyline points="12 3 20 7.5 20 16.5 12 21 4 16.5 4 7.5 12 3"></polyline>
+                                    <line x1="12" y1="12" x2="20" y2="7.5"></line>
+                                    <line x1="12" y1="12" x2="12" y2="21"></line>
+                                    <line x1="12" y1="12" x2="4" y2="7.5"></line>
+                                    <line x1="16" y1="5.25" x2="8" y2="9.75"></line>
+                                 </svg>
+                              </span>
+                                <span class="nav-link-title">
+                              Block Explorer
+                              </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./nodes.html">
+                              <span class="nav-link-icon d-lg-inline-block">
+                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-md" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z"></path>
+                                    <rect x="3" y="4" width="18" height="8" rx="3"></rect>
+                                    <rect x="3" y="12" width="18" height="8" rx="3"></rect>
+                                    <line x1="7" y1="8" x2="7" y2="8.01"></line>
+                                    <line x1="7" y1="16" x2="7" y2="16.01"></line>
+                                 </svg>
+                              </span>
+                                <span class="nav-link-title">
+                              Nodes
+                              </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./pools.html">
+                              <span class="nav-link-icon d-lg-inline-block">
+                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z"></path>
+                                    <polyline points="9 11 12 14 20 6"></polyline>
+                                    <path d="M20 12v6a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h9"></path>
+                                 </svg>
+                              </span>
+                                <span class="nav-link-title">
+                              Pools
+                              </span>
+                            </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="./solo.html">
+                              <span class="nav-link-icon d-lg-inline-block">
+                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" focusable="false" data-prefix="fas" data-icon="pray" viewBox="0 0 384 512">
+                                    <path fill="currentColor" d="M256 128c35.35 0 64-28.65 64-64S291.35 0 256 0s-64 28.65-64 64 28.65 64 64 64zm-30.63 169.75c14.06 16.72 39 19.09 55.97 5.22l88-72.02c17.09-13.98 19.59-39.19 5.62-56.28-13.97-17.11-39.19-19.59-56.31-5.62l-57.44 47-38.91-46.31c-15.44-18.39-39.22-27.92-64-25.33-24.19 2.48-45.25 16.27-56.37 36.92l-49.37 92.03c-23.4 43.64-8.69 96.37 34.19 123.75L131.56 432H40c-22.09 0-40 17.91-40 40s17.91 40 40 40h208c34.08 0 53.77-42.79 28.28-68.28L166.42 333.86l34.8-64.87 24.15 28.76z"></path>
+                                 </svg>
+                              </span>
+                                <span class="nav-link-title">
+                              Solo Mining
+                              </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./tools.html">
+                              <span class="nav-link-icon d-lg-inline-block">
+                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z"></path>
+                                    <path d="M12 17.75l-6.172 3.245 1.179-6.873-4.993-4.867 6.9-1.002L12 2l3.086 6.253 6.9 1.002-4.993 4.867 1.179 6.873z"></path>
+                                 </svg>
+                              </span>
+                                <span class="nav-link-title">
+                              Tools
+                              </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./mixable.html">
+                              <span class="nav-link-icon d-lg-inline-block">
+                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z"></path>
+                                    <rect x="4" y="4" width="6" height="5" rx="2"></rect>
+                                    <rect x="4" y="13" width="6" height="7" rx="2"></rect>
+                                    <rect x="14" y="4" width="6" height="7" rx="2"></rect>
+                                    <rect x="14" y="15" width="6" height="5" rx="2"></rect>
+                                 </svg>
+                              </span>
+                                <span class="nav-link-title">
+                              Mixable Amounts
+                              </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./charts.html">
+                              <span class="nav-link-icon d-lg-inline-block">
+                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-md" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z"></path>
+                                    <rect x="3" y="12" width="6" height="8" rx="1"></rect>
+                                    <rect x="9" y="8" width="6" height="12" rx="1"></rect>
+                                    <rect x="15" y="4" width="6" height="16" rx="1"></rect>
+                                    <line x1="4" y1="20" x2="18" y2="20"></line>
+                                 </svg>
+                              </span>
+                                <span class="nav-link-title">
+                              Network Charts
+                              </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./supply.html">
+                              <span class="nav-link-icon d-lg-inline-block">
+                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z"></path>
+                                    <polyline points="14 3 14 8 19 8"></polyline>
+                                    <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"></path>
+                                    <line x1="9" y1="9" x2="10" y2="9"></line>
+                                    <line x1="9" y1="13" x2="15" y2="13"></line>
+                                    <line x1="9" y1="17" x2="15" y2="17"></line>
+                                 </svg>
+                              </span>
+                                <span class="nav-link-title">
+                              Currency Supply
+                              </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="ml-lg-auto pl-lg-4 py-2 py-md-0 order-last flex-grow-1 flex-md-grow-1">
+                        <div>
+                            <div class="input-icon">
+                              <span class="input-icon-addon">
+                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z"></path>
+                                    <circle cx="10" cy="10" r="7"></circle>
+                                    <line x1="21" y1="21" x2="15" y2="15"></line>
+                                 </svg>
+                              </span>
+                                <input type="text" id="searchValue" class="form-control form-control-dark" placeholder="Search by Block Height / Hash, Transaction Hash, or Payment Id">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="content">
+        <div class="container-xl">
+            <!-- Page title -->
+            <div class="page-header text-white">
+                <div class="row align-items-center">
+                    <div class="col-auto">
+                        <h2 class="page-title">
+                            TurtleCoin&reg; Solo Mining
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-deck row-cards">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Getting started with solo mining is easier than ever!</h4>
+                        </div>
+                        <div class="card-body">
+                            Help decentralize the network by using your favorite mining software (CPU & GPU) and trying your luck at solo mining.<br /><br />
+                            You get 100% of the block reward for each block you mine, directly to your wallet, no middle man required.<br />
+                            For that reason, <strong>make sure that you have your wallet software set to "scan coinbase transactions" to receive the funds for any blocks you may find.</strong><br /><br />
+                            Simply point your miner at <strong><span id="pool_address">&lt;loading...&gt;</span></strong>, set your miner login to your wallet address and start mining! We'll handle the rest.<br /><br />
+                            Just like using the miner in the core suite, you'll be mining by yourself to compete for a block.<br /><br />
+                            You can add multiple workers as long as they all use the same wallet address in the login field of the miner software. Your workers will work together to find a block.<br /><br />
+                            The "pool" manages the difficulty of each worker for you.
+                        </div>
+                        <div class="card-body">
+                            <strong>Note:</strong> Unlike mining with a PPLS or PPS pool, mining solo means that you will <strong>not</strong> receive any coins unless you find a block. There are no rewards for "shares" when solo mining. It's all or nothing.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Current Solo Mining Statistics</h4>
+                        </div>
+                        <div class="card-body">
+                            <table class="table card-table table-vcenter">
+                                <thead>
+                                <tr>
+                                    <th>Pool</th>
+                                    <th>Default Node</th>
+                                    <th>Port</th>
+                                    <th>SSL</th>
+                                    <th>Timeout</th>
+                                    <th>Block Height</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td id="pool_address2"></td>
+                                    <td id="node_host"></td>
+                                    <td id="node_port"></td>
+                                    <td id="node_ssl"></td>
+                                    <td id="node_timeout"></td>
+                                    <td id="height"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <table class="table card-table table-vcenter">
+                                <thead>
+                                <tr>
+                                    <th>Network Difficulty</th>
+                                    <th>Current Block Reward</th>
+                                    <th>Estimated Solo Hashrate</th>
+                                    <th># of Miners</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td id="difficulty"></td>
+                                    <td id="reward"></td>
+                                    <td id="hashrate"></td>
+                                    <td id="miners"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <table class="table card-table table-vcenter">
+                                <thead>
+                                <tr>
+                                    <th>Last Found Block</th>
+                                    <th>Last Found Block Time</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td id="lastblock"></td>
+                                    <td id="lastblocktime"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Lookup Your Stats</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <div class="mb-2">
+                                        <input type="text" id="address" class="form-control" placeholder="Your Miner Wallet Address">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <button class="btn btn-primary btn-block" id="lookup_stats" type="button">Lookup</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body" style="display: none;" id="miner_stats">
+                            <table class="table card-table table-vcenter">
+                                <thead>
+                                <tr>
+                                    <th>Last Found Block</th>
+                                    <th>Last Found Block Time</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td id="miner_lastblock"></td>
+                                    <td id="miner_lastblocktime"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <table class="table card-table table-vcenter">
+                                <thead>
+                                <tr>
+                                    <th>Node</th>
+                                    <th>Port</th>
+                                    <th>SSL</th>
+                                    <th>Timeout</th>
+                                    <th>Workers</th>
+                                    <th>Estimated Hashrate</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td id="miner_node"></td>
+                                    <td id="miner_node_port"></td>
+                                    <td id="miner_node_ssl"></td>
+                                    <td id="miner_node_timeout"></td>
+                                    <td id="miner_workers"></td>
+                                    <td id="miner_hashrate"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <table class="table card-table table-vcenter" id="workers">
+                                <thead>
+                                <tr>
+                                    <th>Worker ID</th>
+                                    <th>Rig ID</th>
+                                    <th>Estimated Hashrate</th>
+                                    <th>Current Difficulty</th>
+                                    <th>Next Difficulty</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Advanced Options</h4>
+                        </div>
+                        <div class="card-body">
+                            By default, we will set you up to mine using the node at: <span id="default_node">&lt;loading...&gt;</span><br /><br />
+                            If you would like to mine using a different node, specify any of the following options in the <strong>password</strong> field of your miner configuration.
+                            <ul>
+                                <li>host=&lt;hostname&gt;</li>
+                                <li>port=&lt;port&gt;</li>
+                                <li>ssl=&lt;ssl&gt;  (use 1 or true to enable)</li>
+                                <li>host=&lt;timeout&gt; (in milliseconds, 1000 minimum)</li>
+                            </ul>
+                            To combine multiple options, separate them by a semicolon (<strong>;</strong>)<br />
+                            For example: <strong>node=node.turtlepay.io;port=443;ssl=true;timeout=5000</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer footer-transparent">
+            <div class="container">
+                <div class="row text-center align-items-center flex-row-reverse">
+                    <div class="col-lg-auto ml-lg-auto">
+                        <ul class="list-inline list-inline-dots mb-0">
+                            <li class="list-inline-item">
+                                <a href="https://github.com/turtlecoin/blockchain-explorer" target="_blank" class="link-secondary">Source code</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-lg-auto mt-3 mt-lg-0">
+                        Copyright © 2020 Powerd By
+                        <a href="https://turtlepay.io/" target="_blank" class="link-secondary">TurtlePay&reg;</a>.
+                        The source code is licensed under AGPL-3.0.
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+<!-- Libs JS -->
+<script src="./dist/js/bootstrap.bundle.min.js"></script>
+<!-- Tabler Core -->
+<script src="./dist/js/tabler.min.js"></script>
+<!-- Dark Mode -->
+<script src="./dist/js/dark-mode.js"></script>
+<script>
+    document.body.style.display = "block"
+
+</script>
+</body>
+</html>
