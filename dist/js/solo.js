@@ -56,7 +56,8 @@ function fetch_pool_data () {
     cache: 'false',
     success: function (data) {
       $('#pool_address').text(data.hostname + ':' + (data.port || 0).toString())
-      $('#pool_address2').text(data.hostname + ':' + (data.port || 0).toString())
+      $('#pool_host').text(data.hostname)
+      $('#pool_port').text((data.port || 0).toString())
       $('#default_node').text(data.node.host + ':' + data.node.port)
 
       render_pool_data(data)
