@@ -3,6 +3,37 @@ $(document).ready(function () {
     decodeAddress()
   })
 
+  $('#datepicker').datepicker()
+
+  $('#datepicker').change(function() {
+    const date = $('#datepicker').val()
+
+    $('#blockpicker').val('Looking up block height from ' + date + '...')
+
+    const parts = date.split('/')
+
+    const ts = (new Date(parts[2], parts[0] - 1, parts[1])).getTime() / 1000
+
+    $.ajax({
+      url: ExplorerConfig.apiBaseUrl + '/getwalletsyncdata/preflight',
+      dataType: 'json',
+      type: 'POST',
+      cache: 'false',
+      data: JSON.stringify({
+        startTimestamp: ts
+      }),
+      contentType: 'application/json; charset=utf-8',
+      success: function(data) {
+        const height = Math.round(data.height / 100) * 100
+
+        $('#blockpicker').val(height)
+      },
+      error: function() {
+        $('#blockpicker').val('Date not found')
+      }
+    })
+  })
+
   $('#generateWalletButton').click(function () {
     generateWallet(true)
   })

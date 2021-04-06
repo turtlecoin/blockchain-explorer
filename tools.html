@@ -24,12 +24,14 @@
 	<link rel="mask-icon" href="./dist/ico/safari-pinned-tab.svg" color="#43b380">
 	<link href="./dist/css/tabler.min.css" rel="stylesheet" />
 	<link href="./dist/css/style.css" rel="stylesheet" />
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<style>
 		body {
 			display: none;
 		}
 	</style>
 	<script src="./dist/js/third-party.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 	<script src="./dist/js/config.js"></script>
 	<script src="./dist/js/common.js"></script>
@@ -416,6 +418,29 @@
 												<input type="text" class="form-control" id="sign_private" placeholder="Private Key">
 												<button class="btn btn-primary col-lg-3 col-12 w-150" id="sign_generate" type="button">Sign Message</button>
 											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-12">
+						<div class="card">
+							<div class="card-header">
+								<h4 class="card-title">Block Height by Date</h4>
+							</div>
+							<div class="card-body">
+								<form>
+									<div class="form-group mb-3 row">
+										<label class="form-label col-md-3 col-12 col-form-label">Date</label>
+										<div class="col">
+											<input type="text" class="form-control" id="datepicker" placeholder="MM/DD/YYYY">
+										</div>
+									</div>
+									<div class="form-group mb-3 row">
+										<label class="form-label col-md-3 col-12 col-form-label">Approximate Block Height</label>
+										<div class="col">
+											<input type="text" class="form-control" id="blockpicker" readonly="readonly" placeholder="Enter a date above">
 										</div>
 									</div>
 								</form>
