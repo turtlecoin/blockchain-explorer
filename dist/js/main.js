@@ -164,7 +164,7 @@ function getAndDisplayLastBlockHeader() {
       $('#blockchainReward').text(numeral(data.reward / Math.pow(10, ExplorerConfig.decimalPoints)).format('0,0.00') + ' ' + ExplorerConfig.ticker)
       $('#blockchainTransactions').text(numeral(data.alreadyGeneratedTransactions).format('0,0'))
       $('#blockchainCirculatingSupply').text(numeral(data.alreadyGeneratedCoins / Math.pow(10, ExplorerConfig.decimalPoints)).format('0,0.00') + ' ' + ExplorerConfig.ticker)
-      $('#blockchainTotalSupply').text(numeral(ExplorerConfig.maxSupply / Math.pow(10, ExplorerConfig.decimalPoints)).format('0,0.00') + ' ' + ExplorerConfig.ticker)
+      $('#blockchainTotalSupply').text(numeral(ExplorerConfig.v1MaxSupply / Math.pow(10, ExplorerConfig.decimalPoints)).format('0,0.00') + ' ' + ExplorerConfig.ticker)
 
       var nextFork
       for (var i = ExplorerConfig.forkHeights.length; i > 0; i--) {
@@ -178,24 +178,24 @@ function getAndDisplayLastBlockHeader() {
       var estimatedFork = (Math.floor(Date.now() / 1000) + forkInSeconds)
       $('#nextForkIn').text(forkTime.days + 'd ' + forkTime.hours + 'h ' + forkTime.minutes + 'm ' + forkTime.seconds + 's').prop('title', (new Date(estimatedFork * 1000)).toGMTString())
 
-      const maxSupply = ExplorerConfig.maxSupply
+      const maxSupply = ExplorerConfig.v1MaxSupply
       const curSupply = data.alreadyGeneratedCoins
       const emiss = (curSupply / maxSupply) * 100
 
       $('#blockchainSupplyEmission').text(numeral(emiss).format('0.000000') + ' %')
-      
+
       const v2LaunchSeconds = (ExplorerConfig.v2LaunchHeight - data.height) * ExplorerConfig.blockTargetTime
       const v1DeathSeconds = (ExplorerConfig.v1DeathHeight - data.height) * ExplorerConfig.blockTargetTime
-      
+
       const v2Launch = secondsToHumanReadable(v2LaunchSeconds)
       const v1Death = secondsToHumanReadable(v1DeathSeconds)
-      
+
       const estimatedLaunch = (Math.floor(Date.now() / 1000) + v2LaunchSeconds)
       const estimatedDeath = (Math.floor(Date.now() / 1000) + v1DeathSeconds)
-      
+
       $("#v2LaunchIn").text(v2Launch.days + 'd ' + v2Launch.hours + 'h ' + v2Launch.minutes + 'm ' + v2Launch.seconds + 's').prop('title', (new Date(estimatedLaunch * 1000)).toGMTString())
       $("#v1DeathIn").text(v1Death.days + 'd ' + v1Death.hours + 'h ' + v1Death.minutes + 'm ' + v1Death.seconds + 's').prop('title', (new Date(estimatedDeath * 1000)).toGMTString())
-      
+
       if (data.height >= ExplorerConfig.v2LaunchHeight && data.height < ExplorerConfig.v1DeathHeight) {
         $("#swapPeriodIs").text("Is Active")
       } else if (data.height < ExplorerConfig.v2LaunchHeight) {
@@ -205,7 +205,7 @@ function getAndDisplayLastBlockHeader() {
       } else {
         $("#swapPeriodIs").text("Is Inactive")
       }
-	  
+
 	  setInterval(() => {
 		$("#swapPeriodIs").fadeOut(1000)
 		$("#swapPeriodIs").fadeIn(1000)
