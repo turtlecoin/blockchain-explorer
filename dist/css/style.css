@@ -1,3 +1,7 @@
+.navbar-brand-image {
+	max-width: none;
+}
+
 .navbar-overlap:after {
 	content: '';
 	height: 9rem;
