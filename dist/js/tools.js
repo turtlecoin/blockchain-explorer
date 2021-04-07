@@ -120,6 +120,7 @@ async function checkSignature() {
   const signature = $('#sign_signature').val().trim()
 
   $('#sign_signature').removeClass('is-danger')
+  $('#sign_signature').removeClass('is-success')
   $('#sign_signer').removeClass('is-danger')
 
   if (!await crypto.checkKey(public_key)) {
