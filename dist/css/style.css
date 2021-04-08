@@ -158,7 +158,16 @@ a:hover {
 	font-family: monospace;
 }
 
-#v2Status, #v2Status tbody tr th {
+#v2Status, 
+#v2Status tbody tr td,
+#v2Status tbody tr th {
 	background: #8e7cc3;
-	color: #f5f7fb;
+	color: #f5f7fb!important;
+}
+
+@media (max-width: 47.98rem) {
+	#v2Status tbody tr th,
+	#v2Status tbody tr td {
+		padding-left: 1.25rem!important;
+	}
 }
