@@ -165,6 +165,10 @@ a:hover {
 	color: #f5f7fb!important;
 }
 
+.pools-alert {
+	border-radius: 0;
+}
+
 @media (max-width: 47.98rem) {
 	#v2Status tbody tr th,
 	#v2Status tbody tr td {
