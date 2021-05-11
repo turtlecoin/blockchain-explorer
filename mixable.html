@@ -221,12 +221,22 @@
 							<div class="card-header">
 								<h4 class="card-title">Mixable</h4>
 							</div>
+							<div class="alert alert-warning" role="alert">
+								<svg xmlns="http://www.w3.org/2000/svg" class="icon mr-1" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+									<path stroke="none" d="M0 0h24v24H0z"></path>
+									<circle cx="12" cy="12" r="9"></circle>
+									<line x1="12" y1="8" x2="12" y2="12"></line>
+									<line x1="12" y1="16" x2="12.01" y2="16"></line>
+								</svg>
+								<b><span id="swapped_count">0</span> of <span id="total_count">0</span> outputs (<span id="swapped_percent">0%</span>) are under 1,000.00 TRTL.</b>
+							</div>
 							<div class="table-responsive">
 								<table id="mixableAmounts" class="table table-vcenter text-nowrap card-table">
 									<thead>
 										<tr>
 											<th>Amount</th>
 											<th>Outputs</th>
+											<th>% of Total</th>
 											<th>Date & Time</th>
 											<th>Height</th>
 											<th>Transaction Hash</th>
@@ -249,7 +259,7 @@
 							</ul>
 						</div>
 						<div class="col-12 col-lg-auto mt-3 mt-lg-0">
-							Copyright © 2021 Powerd By
+							Copyright © 2021 Powered By
 							<a href="https://turtlepay.io/" target="_blank" class="link-secondary">TurtlePay&reg;</a>.
 							The source code is licensed under AGPL-3.0.
 						</div>

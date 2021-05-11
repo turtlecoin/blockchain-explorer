@@ -8,7 +8,7 @@ $(document).ready(function () {
       emptyTable: 'Loading mixable amounts... Please wait...'
     },
     columnDefs: [{
-      targets: [3],
+      targets: [4],
       type: 'num-fmt',
       render: function (data, type, row, meta) {
         if (type === 'display') {
@@ -37,6 +37,15 @@ $(document).ready(function () {
       }
     },
     {
+      targets: [2],
+      render: function (data, type, row, meta) {
+        if (type === 'display') {
+          data = numeral(data).format('0.0000%')
+        }
+        return data
+      }
+    },
+    {
       targets: [0],
       render: function (data, type, row, meta) {
         if (type === 'display') {
@@ -46,7 +55,7 @@ $(document).ready(function () {
       }
     },
     {
-      targets: [2],
+      targets: [3],
       render: function (data, type, row, meta) {
         if (type === 'display') {
           if (data === null) {
@@ -59,7 +68,7 @@ $(document).ready(function () {
       }
     },
     {
-      targets: [4],
+      targets: [5],
       render: function (data, type, row, meta) {
         if (type === 'display') {
           if (data !== null) {
@@ -95,9 +104,19 @@ function getMixableAmounts () {
     cache: 'true',
     success: function (data) {
       localData.mixableAmounts.clear()
+      var swappedCount = 0;
+      var totalCount = 0;
       var ignored = 0
       for (var i = 0; i < data.length; i++) {
-        var denomination = data[i]
+        const denomination = data[i]
+        totalCount += denomination.outputs
+        if (denomination.amount <= 100000) {
+          swappedCount += denomination.outputs
+        }
+      }
+
+      for (var i = 0; i < data.length; i++) {
+        const denomination = data[i]
         if (!isPrettyAmount(denomination.amount)) {
           ignored += denomination.amount
           continue
@@ -105,6 +124,7 @@ function getMixableAmounts () {
         localData.mixableAmounts.row.add([
           denomination.amount,
           denomination.outputs,
+          denomination.outputs / totalCount,
           denomination.timestamp,
           {
             height: denomination.height,
@@ -114,6 +134,9 @@ function getMixableAmounts () {
         ])
       }
       console.log('%s total shells filtered from list', ignored)
+      $('#swapped_count').text(numeral(swappedCount).format('0,0'))
+      $('#total_count').text(numeral(totalCount).format('0,0'))
+      $('#swapped_percent').text(numeral((swappedCount / totalCount)).format('0.00%'))
       localData.mixableAmounts.draw(false)
     },
     error: function () {
