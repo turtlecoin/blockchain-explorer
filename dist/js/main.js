@@ -183,33 +183,6 @@ function getAndDisplayLastBlockHeader() {
       const emiss = (curSupply / maxSupply) * 100
 
       $('#blockchainSupplyEmission').text(numeral(emiss).format('0.000000') + ' %')
-
-      const v2LaunchSeconds = (ExplorerConfig.v2LaunchHeight - data.height) * ExplorerConfig.blockTargetTime
-      const v1DeathSeconds = (ExplorerConfig.v1DeathHeight - data.height) * ExplorerConfig.blockTargetTime
-
-      const v2Launch = secondsToHumanReadable(v2LaunchSeconds)
-      const v1Death = secondsToHumanReadable(v1DeathSeconds)
-
-      const estimatedLaunch = (Math.floor(Date.now() / 1000) + v2LaunchSeconds)
-      const estimatedDeath = (Math.floor(Date.now() / 1000) + v1DeathSeconds)
-
-      $("#v2LaunchIn").text(v2Launch.days + 'd ' + v2Launch.hours + 'h ' + v2Launch.minutes + 'm ' + v2Launch.seconds + 's').prop('title', (new Date(estimatedLaunch * 1000)).toGMTString())
-      $("#v1DeathIn").text(v1Death.days + 'd ' + v1Death.hours + 'h ' + v1Death.minutes + 'm ' + v1Death.seconds + 's').prop('title', (new Date(estimatedDeath * 1000)).toGMTString())
-
-      if (data.height >= ExplorerConfig.v2LaunchHeight && data.height < ExplorerConfig.v1DeathHeight) {
-        $("#swapPeriodIs").text("Is Active")
-      } else if (data.height < ExplorerConfig.v2LaunchHeight) {
-        $("#swapPeriodIs").text("Has not started")
-      } else if (data.height >= ExplorerConfig.v1DeathHeight) {
-        $("#swapPeriodIs").text("Is Complete")
-      } else {
-        $("#swapPeriodIs").text("Is Inactive")
-      }
-
-	  setInterval(() => {
-		$("#swapPeriodIs").fadeOut(1000)
-		$("#swapPeriodIs").fadeIn(1000)
-	  }, 2000)
     }
   })
 }
