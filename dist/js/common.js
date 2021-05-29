@@ -1,4 +1,9 @@
-const localData = {}
+const localData = {
+  average: {
+    difficulty: 0,
+    hashrate: 0
+  }
+}
 
 if (typeof google !== 'undefined') {
   google.charts.load('current', {
@@ -22,7 +27,8 @@ $(document).ready(function () {
     $('.navbar-burger').toggleClass('is-active')
     $('.navbar-menu').toggleClass('is-active')
   })
-  
+
+  getAverageNetworkHashRateLoop()
   getCurrentNetworkHashRateLoop()
 })
 
@@ -60,6 +66,22 @@ function isHash (str) {
   return regex.test(str)
 }
 
+function getAverageNetworkHashRateLoop () {
+  $.ajax({
+    url: ExplorerConfig.apiBaseUrl + '/chain/difficulty',
+    dataType: 'json',
+    type: 'GET',
+    cache: 'false',
+    success: function (data) {
+      setTimeout(function () {
+        getAverageNetworkHashRateLoop()
+      }, 30000)
+
+      localData.average = data
+    }
+  })
+}
+
 function getCurrentNetworkHashRateLoop () {
   $.ajax({
     url: ExplorerConfig.apiBaseUrl + '/block/header/top',
@@ -72,7 +94,7 @@ function getCurrentNetworkHashRateLoop () {
       setTimeout(function () {
         getCurrentNetworkHashRateLoop()
       }, 15000)
-	  
+
 	  const v2LaunchSeconds = (ExplorerConfig.v2LaunchHeight - header.height) * ExplorerConfig.blockTargetTime
       const v1DeathSeconds = (ExplorerConfig.v1DeathHeight - header.height) * ExplorerConfig.blockTargetTime
 

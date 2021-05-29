@@ -45,8 +45,40 @@ $(document).ready(function () {
     fetch_miner_worker_data(workers)
   })
 
+  $('#minerhashrate').keyup(function () {
+    calculate_solo_block_time()
+  })
+
+  $('#minerunit').change(function () {
+    calculate_solo_block_time()
+  })
+
   fetch_pool_data()
 })
+
+function calculate_solo_block_time () {
+  $('#minerhashrate').removeClass('is-danger')
+
+  try {
+    const hashrate = parseFloat($('#minerhashrate').val())
+
+    const unit = parseInt($('#minerunit').find(':selected').val())
+
+    if (isNaN(hashrate) || isNaN(unit)) {
+      throw new Error('Invalid value')
+    }
+
+    const seconds = Math.round(localData.average.hashrate / (hashrate * unit))
+
+    const result = secondsToHumanReadable(seconds)
+
+    const readable = result.days + ' days, ' + result.hours + ' hours, ' + result.minutes + ' minutes, ' + result.seconds + ' seconds'
+
+    $('#minertimetofind').val(readable)
+  } catch (e) {
+    $('#minerhashrate').addClass('is-danger')
+  }
+}
 
 function fetch_pool_data () {
   $.ajax({

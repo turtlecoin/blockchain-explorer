@@ -333,6 +333,42 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
+                            <h4 class="card-title">Solo Mining Calculator</h4>
+                        </div>
+                        <div class="card-body">Want to know how often you <strong>might</strong> find a block while solo mining given the last 24 hours of difficulty? Fill in the fields below.</div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="mb-2">
+                                        <input type="text" id="minerhashrate" class="form-control" placeholder="Enter Your Hash Rate">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-2">
+                                        <select id="minerunit" class="form-control">
+                                            <option value="1">H/s</option>
+                                            <option value="1000">KH/s</option>
+                                            <option value="1000000">MH/s</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col col-md-3">
+                                    <div class="mb-2">
+                                        <input type="text" class="form-control" readonly="readonly" value="Estimated time:">
+                                    </div>
+                                </div>
+                                <div class="col col-md-4">
+                                    <div class="mb-2">
+                                        <input type="text" class="form-control" readonly="readonly" id="minertimetofind">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
                             <h4 class="card-title">Lookup Your Stats</h4>
                         </div>
                         <div class="card-body">
